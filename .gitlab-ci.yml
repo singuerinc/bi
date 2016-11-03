@@ -1,0 +1,15 @@
+image: node:7-slim
+
+cache:
+  paths:
+  - node_modules/
+
+test:
+  script:
+   - yarn
+   - yarn run test
+
+build:
+  script:
+   - yarn
+   - yarn run build

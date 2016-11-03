@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags always come first -->
+    <title>Bigstagram</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
   </head>
-  <body id="app">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4">1</div>
-        <div class="col-sm-4">2</div>
-        <div class="col-sm-4">3</div>
-      </div>
+  <body>
+    <div id="app">
+      <ul class="images">
+        <li v-for="img in feed.data" class="image">
+          <h3 class="caption">
+            <span v-if="img.location" class="location">{{img.location.name}}</span>
+            <span v-if="img.caption" class="text">{{img.caption.text}}</span>
+            <img :src="img.user.profile_picture" class="user">
+          </h3>
+          <img :src="img.images.standard_resolution.url" class="img">
+        </li>
+      </ul>
     </div>
     <script src="js/app.bundle.js" charset="utf-8"></script>
   </body>

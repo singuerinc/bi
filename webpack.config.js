@@ -1,25 +1,26 @@
-'use strict';
+"use strict";
 
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
-const webpack = require("webpack");
 
 module.exports = {
     context: __dirname + "/src/js",
     entry: {
-        app: ["./app.js"],
+        app: ["./app.js"]
     },
     output: {
-        path: path.resolve(__dirname, "bin/js"),
-        publicPath: "/js/",
-        filename: "[name].bundle.js",
+        path: path.resolve(__dirname, "public"),
+        publicPath: "/",
+        filename: "js/[name].bundle.js"
     },
+    devtool: "#sourcemaps",
     devServer: {
-        contentBase: __dirname + "/src",
+        contentBase: __dirname + "/src"
     },
     resolve: {
         alias: {
-            'vue$': 'vue/dist/vue.min.js',
-        },
+            vue$: "vue/dist/vue.min.js"
+        }
     },
     module: {
         rules: [{
@@ -27,12 +28,17 @@ module.exports = {
             use: [{
                 loader: "babel-loader",
                 options: {
-                    presets: ["es2015"],
+                    presets: ["es2015"]
                 }
-            }],
-        },{
+            }]
+        }, {
             test: /\.css$/,
-            use: ["style-loader", "css-loader"],
-        } ],
-    }
+            use: ["style-loader", "css-loader"]
+        }]
+    },
+    plugins: [
+        new CopyWebpackPlugin([
+            { from: __dirname + "/src/index.html" }
+        ])
+    ]
 };

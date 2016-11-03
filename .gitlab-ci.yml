@@ -1,17 +1,19 @@
 image: node:7-slim
 
+stages:
+  - deploy
+
 cache:
   paths:
   - node_modules/
 
-test:
+pages:
+  environment: production
+  stage: deploy
   script:
-   - npm i -g yarn
-   - yarn
-   - yarn run test
-
-build:
-  script:
-   - npm i -g yarn
-   - yarn
-   - yarn run build
+  - npm i -g yarn
+  - yarn
+  - yarn run build
+  artifacts:
+    paths:
+    - public

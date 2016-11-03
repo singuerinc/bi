@@ -4,7 +4,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    image: singuerinc-labs/bigger-instagram
+    image: singuerinc-labs/bigstagram
     command: yarn run serve
     volumes:
       - ./:/src/app

@@ -1,0 +1,12 @@
+version: "2"
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: singuerinc-labs/bigger-instagram
+    command: yarn run serve
+    volumes:
+      - ./:/src/app
+    ports:
+      - 8080:8080

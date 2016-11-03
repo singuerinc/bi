@@ -6,10 +6,12 @@ cache:
 
 test:
   script:
+   - npm i -g yarn
    - yarn
    - yarn run test
 
 build:
   script:
+   - npm i -g yarn
    - yarn
    - yarn run build

@@ -43,22 +43,24 @@ body {
 	top: 1rem;
 	left: 1rem;
 	color: white;
-	display: inline-block;
 }
 
 .images .image .caption .text {
 	display: block;
+	text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .images .image .caption .location {
 	font-size: 1rem;
 	display: block;
+	text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .images .image .caption .user {
 	margin: 1rem 0 0;
 	width: 5rem;
 	border-radius: 100%;
+	box-shadow: 2px 2px 0 0 rgba(0,0,0,0.1);
 }
 
 /* Small devices (landscape phones, 544px and up)*/

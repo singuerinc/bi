@@ -5,8 +5,7 @@ new Vue({
     el: "#app",
     data() {
         return {
-            feed: {},
-            styles: styles
+            feed: {}
         };
     },
     computed: {
@@ -17,7 +16,6 @@ new Vue({
     methods: {
         parse(data) {
             this.feed = data;
-            console.log(data.data[0].user.profile_picture);
         }
     },
     created() {

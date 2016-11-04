@@ -1,3 +1,7 @@
+[v-cloak] {
+	visibility: hidden;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -11,8 +15,11 @@ html {
 	font-size: 10px;
 }
 
+html, body {
+	background-color: #ECEFF1;
+}
+
 body {
-	background-color: #111;
 	font-family: -apple-system, BlinkMacSystemFont,
 	"Segoe UI", "Roboto", "Oxygen",
 	"Ubuntu", "Cantarell", "Fira Sans",
@@ -22,18 +29,99 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.login {
+	width: 85vw;
+	text-align: center;
+	color: #607D8B;
+	margin: 2rem auto 0;
+}
+
+h1 {
+	color: #546E7A;
+	font-size: 6rem;
+	font-weight: lighter;
+	text-align: center;
+	margin: 2rem 0 0;
+}
+
+h2 {
+	color: #37474F;
+	font-size: 1.5rem;
+	margin: 1rem auto 2rem;
+	font-weight: normal;
+	text-align: center;
+}
+
+.login a {
+	color: #CFD8DC;
+	font-size: 2rem;
+	margin: 2rem;
+	display: inline-block;
+	text-decoration: none;
+	background-color: #37474F;
+	padding: 1rem 2rem;
+}
+
+.login p {
+	color: #37474F;
+	font-size: 1.2rem;
+	margin: 0;
+}
+
+.login.hide {
+	display: none;
+}
+
+.zoom {
+	display: none;
+	width: 640px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.zoom.hide {
+	display: none;
+}
+
+.zoom li {
+	display: inline-block;
+}
+
+.zoom li a {
+	color: #78909C;
+	font-size: 3rem;
+	font-weight: lighter;
+	text-decoration: none;
+	margin: 0 0 0 0.5rem;
+	transition: opacity 0.2s;
+	opacity: 1;
+	cursor: pointer;
+}
+
+.zoom li a.active {
+	opacity: 0.3;
+	pointer-events: none;
+}
+
+.zoom li a.x2 {
+	font-size: 4rem;
+}
+
+.zoom li a.x3 {
+	font-size: 5rem;
+}
+
 .images {
 	overflow: hidden;
-	margin: 2rem 2rem;
 }
 
 .images .image {
 	position: relative;
+	margin-bottom: 3rem;
 }
 
 .images .image .img {
 	width: 100%;
-	margin-bottom: 3rem;
 }
 
 .images .image .caption {
@@ -80,8 +168,29 @@ body {
 
 /* Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
+
+	h1 {
+		font-size: 12rem;
+	}
+
+	h2 {
+		font-size: 3rem;
+	}
+
+	.zoom {
+		display: block;
+	}
+
 	.images {
-		width: 640px;
+		width: 320px;
 		margin: 2rem auto;
+	}
+
+	.images.x2 {
+		width: 640px;
+	}
+
+	.images.x3 {
+		width: 960px;
 	}
 }

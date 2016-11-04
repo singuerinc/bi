@@ -5,7 +5,8 @@ new Vue({
     el: "#app",
     data() {
         return {
-            feed: {}
+            feed: {},
+            zoom: "x2"
         };
     },
     computed: {
@@ -21,10 +22,25 @@ new Vue({
     created() {
         window._bigstagramParse = this.parse;
 
-        let script = document.createElement("script"),
-            header = document.getElementsByTagName("head");
+        let token;
 
-        script.src = "https://api.instagram.com/v1/users/self/media/recent/?access_token=747027774.cee9bf3.cc7ec3f8a91f485db67d82e9de688305&callback=_bigstagramParse";
-        header[0].appendChild(script);
+        try {
+            token = location.hash.match(/^#access_token=(.+)$/)[1];
+        } catch (e){
+            token = null;
+        }
+
+        if(token !== null){
+            this.$nextTick(() => {
+                this.$refs.login.classList.add("hide");
+                this.$refs.zoom.classList.remove("hide");
+            });
+
+            let script = document.createElement("script"),
+                header = document.getElementsByTagName("head");
+            script.src = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${token}&scope=basic,public_content&callback=_bigstagramParse`;
+            header[0].appendChild(script);
+        }
+
     }
 });

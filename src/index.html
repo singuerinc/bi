@@ -1,24 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>Bigstagram</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-  </head>
-  <body>
-    <div id="app">
-      <ul class="images">
-        <li v-for="img in feed.data" class="image">
-          <h3 class="caption">
-            <span v-if="img.location" class="location">{{img.location.name}}</span>
-            <span v-if="img.caption" class="text">{{img.caption.text}}</span>
-            <img :src="img.user.profile_picture" class="user">
-          </h3>
-          <img :src="img.images.standard_resolution.url" class="img">
-        </li>
-      </ul>
+    <meta name="description" content="Bigstagram, your Instagram feed but bigger." />
+    <meta name="keywords" content="bigger, instagram, big" />
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div id="app">
+
+    <h1>Bigstagram</h1>
+    <h2>Your Instagram feed but bigger!</h2>
+
+    <div ref="login" class="login">
+        <a href="https://api.instagram.com/oauth/authorize/?client_id=cee9bf3af8b9426ca0fbe927aaa4b785&redirect_uri=http://localhost:8080&response_type=token">LOGIN</a>
+        <p>Please, log in so we can display your photos.</p>
+        <p>Bigstagram does not store any information.</p>
     </div>
-    <script src="js/app.bundle.js" charset="utf-8"></script>
-  </body>
+
+    <ul ref="zoom" class="zoom hide">
+        <li><a class="x1" v-bind:class="{active: zoom == 'x1'}" v-on:click="zoom = 'x1'">x1</a></li>
+        <li><a class="x2" v-bind:class="{active: zoom == 'x2'}" v-on:click="zoom = 'x2'">x2</a></li>
+        <li><a class="x3" v-bind:class="{active: zoom == 'x3'}" v-on:click="zoom = 'x3'">x3</a></li>
+    </ul>
+
+    <ul class="images" v-bind:class="zoom" v-cloak>
+        <li v-for="img in feed.data" class="image">
+            <h3 class="caption">
+                <span v-if="img.location" class="location">{{img.location.name}}</span>
+                <span v-if="img.caption" class="text">{{img.caption.text}}</span>
+                <!--<img :src="img.user.profile_picture" class="user">-->
+            </h3>
+            <img :src="img.images.standard_resolution.url" class="img">
+        </li>
+    </ul>
+
+</div>
+<script src="js/app.bundle.js" charset="utf-8"></script>
+</body>
 </html>

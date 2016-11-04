@@ -1,3 +1,3 @@
-# Bigger-Instagram
+# Bigstagram
 
-It's an application that display images from your instagram but bigger and in different ways!
+Is an application that displays images from your instagram but bigger!

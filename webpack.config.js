@@ -13,7 +13,7 @@ module.exports = {
         publicPath: "/",
         filename: "js/[name].bundle.js"
     },
-    devtool: "#sourcemaps",
+    // devtool: "#sourcemaps",
     devServer: {
         contentBase: __dirname + "/src"
     },

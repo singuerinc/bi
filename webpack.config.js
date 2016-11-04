@@ -39,7 +39,7 @@ module.exports = {
     plugins: [
         new CopyWebpackPlugin([
             { from: __dirname + "/src/index.html" },
-            { from: __dirname + "/src/css/main.css" }
+            { from: __dirname + "/src/css/main.css", to: __dirname + "/public/css/main.css" }
         ])
     ]
 };

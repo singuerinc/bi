@@ -17,6 +17,16 @@ new Vue({
     methods: {
         parse(data) {
             this.feed = data;
+        },
+        get1080(data){
+            let url = data.url, width, height;
+
+            ({width, height} = data);
+
+            url = url.replace(/width/g, "1080");
+            url = url.replace(/height/g, "1080");
+
+            return url;
         }
     },
     created() {
@@ -26,11 +36,11 @@ new Vue({
 
         try {
             token = location.hash.match(/^#access_token=(.+)$/)[1];
-        } catch (e){
+        } catch (e) {
             token = null;
         }
 
-        if(token !== null){
+        if (token !== null) {
             this.$nextTick(() => {
                 this.$refs.login.classList.add("hide");
                 this.$refs.zoom.classList.remove("hide");

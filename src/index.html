@@ -12,7 +12,7 @@
 <body>
 <div id="app">
 
-    <h1>Bi</h1>
+    <h1>Bi<small>by singuerinc</small></h1>
     <h2>Your Instagram feed but bigger!</h2>
 
     <div ref="login" class="login">
@@ -34,7 +34,7 @@
                 <span v-if="img.caption" class="text">{{img.caption.text}}</span>
                 <!--<img :src="img.user.profile_picture" class="user">-->
             </h3>
-            <img :src="img.images.standard_resolution.url" class="img">
+            <img :src="get1080(img.images.standard_resolution)" class="img">
         </li>
     </ul>
 

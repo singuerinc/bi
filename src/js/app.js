@@ -20,7 +20,7 @@ new Vue({
         }
     },
     created() {
-        window._bigstagramParse = this.parse;
+        window._biParse = this.parse;
 
         let token;
 
@@ -38,7 +38,7 @@ new Vue({
 
             let script = document.createElement("script"),
                 header = document.getElementsByTagName("head");
-            script.src = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${token}&scope=basic,public_content&callback=_bigstagramParse`;
+            script.src = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${token}&scope=basic,public_content&callback=_biParse`;
             header[0].appendChild(script);
         }
 

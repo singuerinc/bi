@@ -16,15 +16,27 @@
     <h2>Your Instagram feed,<br>but bigger!</h2>
 
     <div ref="login" class="login">
-        <a v-on:click="login">LOGIN</a>
-        <p>Please, log in so we can display your photos.</p>
+        <a v-on:click="login">Login</a>
+        <p>Log in in order to display your photos.</p>
         <p>Bi does not store any information.</p>
     </div>
 
     <ul ref="zoom" class="zoom hide">
-        <li><a class="x1" v-bind:class="{active: zoom == 'x1'}" v-on:click="zoom = 'x1'">x1</a></li>
-        <li><a class="x2" v-bind:class="{active: zoom == 'x2'}" v-on:click="zoom = 'x2'">x2</a></li>
-        <li><a class="x3" v-bind:class="{active: zoom == 'x3'}" v-on:click="zoom = 'x3'">x3</a></li>
+        <li>
+            <a class="x1" v-bind:class="{active: zoom == 'x1'}" v-on:click="zoom = 'x1'">
+                <img src="img/ic_image_black_24px.svg" alt="x1">
+            </a>
+        </li>
+        <li>
+            <a class="x2" v-bind:class="{active: zoom == 'x2'}" v-on:click="zoom = 'x2'">
+                <img src="img/ic_image_black_24px.svg" alt="x2">
+            </a>
+        </li>
+        <li>
+            <a class="x3" v-bind:class="{active: zoom == 'x3'}" v-on:click="zoom = 'x3'">
+                <img src="img/ic_image_black_24px.svg" alt="x3">
+            </a>
+        </li>
     </ul>
 
     <ul class="images" v-bind:class="zoom" v-cloak>

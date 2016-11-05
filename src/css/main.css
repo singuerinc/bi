@@ -37,10 +37,6 @@ body {
 	background-repeat: no-repeat;
 }
 
-#app {
-	padding-top: 2rem;
-}
-
 .login {
 	width: 85vw;
 	text-align: center;
@@ -54,7 +50,7 @@ h1 {
 	font-size: 6rem;
 	font-weight: bold;
 	text-align: center;
-	margin: 0;
+	margin: 0 0 2rem;
 }
 
 body.app-mode {
@@ -69,7 +65,10 @@ h1 small {
 	font-size: 0.2em;
 	font-weight: lighter;
 	display: block;
-	margin-top: -8px;
+}
+
+.app-mode h1 small {
+	display: none;
 }
 
 h2 {
@@ -78,6 +77,10 @@ h2 {
 	margin: 1rem auto 2rem;
 	font-weight: normal;
 	text-align: center;
+}
+
+.app-mode h2 {
+	display: none;
 }
 
 .login {
@@ -113,9 +116,11 @@ h2 {
 
 .zoom {
 	display: none;
-	width: 640px;
-	margin: 0 auto;
+	margin: 0 2rem 2rem 0;
 	text-align: center;
+	position: fixed;
+	bottom: 0;
+	right: 0;
 }
 
 .zoom.hide {
@@ -133,21 +138,37 @@ h2 {
 	text-decoration: none;
 	margin: 0 0 0 0.5rem;
 	transition: opacity 0.2s;
-	opacity: 1;
+	opacity: 0.3;
 	cursor: pointer;
 }
 
+.zoom li a img {
+	width: 24px;
+	height: 24px;
+	vertical-align: bottom;
+}
+
+.zoom li a.x2 img {
+	width: 32px;
+	height: 32px;
+}
+
+.zoom li a.x3 img {
+	width: 48px;
+	height: 48px;
+}
+
 .zoom li a.active {
-	opacity: 0.3;
+	opacity: 1;
 	pointer-events: none;
 }
 
 .zoom li a.x2 {
-	font-size: 4rem;
+
 }
 
 .zoom li a.x3 {
-	font-size: 5rem;
+
 }
 
 .images {

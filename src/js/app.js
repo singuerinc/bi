@@ -27,8 +27,8 @@ new Vue({
 
             ({width, height} = data);
 
-            url = url.replace(/width/g, "1080");
-            url = url.replace(/height/g, "1080");
+            url = url.replace(`${width}x`, "1080x");
+            url = url.replace(`x${width}`, "x1080");
 
             return url;
         }
@@ -46,6 +46,7 @@ new Vue({
 
         if (token !== null) {
             this.$nextTick(() => {
+                document.body.classList.add("app-mode");
                 this.$refs.login.classList.add("hide");
                 this.$refs.zoom.classList.remove("hide");
             });

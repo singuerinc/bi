@@ -5,6 +5,8 @@
 * {
 	margin: 0;
 	padding: 0;
+	-webkit-margin-before:0em;
+	-webkit-margin-after:0em;
 }
 
 img {
@@ -17,6 +19,7 @@ html {
 
 html, body {
 	background-color: #ECEFF1;
+	height: 100%;
 }
 
 body {
@@ -27,6 +30,15 @@ body {
 	font-size: 100%;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background-image: url(/img/rails.jpg);
+	background-size: cover;
+	background-position-y: 0;
+	background-position-x: 50%;
+	background-repeat: no-repeat;
+}
+
+#app {
+	padding-top: 2rem;
 }
 
 .login {
@@ -34,14 +46,23 @@ body {
 	text-align: center;
 	color: #607D8B;
 	margin: 2rem auto 0;
+	transition: color 1s;
 }
 
 h1 {
-	color: #546E7A;
+	color: white;
 	font-size: 6rem;
 	font-weight: bold;
 	text-align: center;
-	margin: 2rem 0 0;
+	margin: 0;
+}
+
+body.app-mode {
+	background-image: none;
+}
+
+.app-mode h1 {
+	color: #546E7A;
 }
 
 h1 small {
@@ -59,6 +80,10 @@ h2 {
 	text-align: center;
 }
 
+.login {
+	position: relative;
+}
+
 .login a {
 	color: #CFD8DC;
 	font-size: 2rem;
@@ -67,6 +92,13 @@ h2 {
 	text-decoration: none;
 	background-color: #37474F;
 	padding: 1rem 2rem;
+	cursor: pointer;
+	transition: all 0.5s;
+}
+
+.login a:hover {
+	color: #37474F;
+	background-color: white;
 }
 
 .login p {
@@ -161,12 +193,20 @@ h2 {
 footer {
 	display: block;
 	text-align: center;
-	margin: 5rem;
+	margin: 5rem 0;
 	font-size: 1.2rem;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.app-mode footer {
+	position: relative;
+	bottom: 0;
 }
 
 footer a {
-	color: #37474F;
+	color: white;
 	text-decoration: none;
 }
 
@@ -211,10 +251,13 @@ footer a {
 	.images.x3 {
 		width: 1080px;
 	}
+
 }
 
 /* Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
-
-
+	footer a {
+		color: #37474F;
+		text-decoration: none;
+	}
 }

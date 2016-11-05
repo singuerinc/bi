@@ -158,6 +158,18 @@ h2 {
 	box-shadow: 2px 2px 0 0 rgba(0,0,0,0.1);
 }
 
+footer {
+	display: block;
+	text-align: center;
+	margin: 5rem;
+	font-size: 1.2rem;
+}
+
+footer a {
+	color: #37474F;
+	text-decoration: none;
+}
+
 /* Small devices (landscape phones, 544px and up)*/
 @media (min-width: 544px) {
 

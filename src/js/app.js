@@ -16,7 +16,7 @@ new Vue({
     },
     methods: {
         login(){
-            const redirect_uri = location.href; //"https://singuerinc-labs.gitlab.io/bi/";
+            const redirect_uri = location.href;
             location.href = `https://api.instagram.com/oauth/authorize/?client_id=cee9bf3af8b9426ca0fbe927aaa4b785&redirect_uri=${redirect_uri}&response_type=token`;
         },
         parse(data) {

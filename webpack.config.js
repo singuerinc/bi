@@ -41,7 +41,7 @@ module.exports = {
             { from: __dirname + "/src/index.html" },
             { from: __dirname + "/src/css/main.css", to: __dirname + "/public/css/main.css" },
             { from: __dirname + "/src/policy.html" },
-            { from: __dirname + "/src/pJTm63-FLBNR0ABO9Qdp4KaqbZbsyF_iw42oWTWZLnA", to: __dirname + "/public/.well-known/acme-challenge/pJTm63-FLBNR0ABO9Qdp4KaqbZbsyF_iw42oWTWZLnA" },
+            { from: __dirname + "/src/pJTm63-FLBNR0ABO9Qdp4KaqbZbsyF_iw42oWTWZLnA", to: __dirname + "/public/.well-known/acme-challenge/pJTm63-FLBNR0ABO9Qdp4KaqbZbsyF_iw42oWTWZLnA/index.html" },
         ])
     ]
 };

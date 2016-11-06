@@ -53,6 +53,11 @@ new Vue({
             token = null;
         }
 
+        try {
+            history.pushState("", document.title, window.location.pathname);
+        } catch (e) {
+        }
+
         if (token !== null) {
             this.$nextTick(() => {
                 document.body.classList.add("app-mode");

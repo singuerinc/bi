@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bi</title>
+    <title>Bi. Your Instagram feed, but bigger!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="Bi, your Instagram feed but bigger." />
-    <meta name="keywords" content="bigger, instagram, big" />
+    <meta name="keywords" content="bi, big, bigger, instagram, feed" />
+    <link rel="canonical" href="https://bi.singuerinc.com/" />
+
+    <meta name="author" content="singuerinc" />
+    <meta name="description" content="Bi, your Instagram feed but bigger." />
+    <meta name="robots" content="follow">
+
+    <meta property="fb:app_id" content="685703318259251" />
+    <meta property="fb:admins" content="nahuel.scotti" />
+
+    <meta property="og:site_name" content="Bi" />
+    <meta property="og:title" content="Bi">
+    <meta property="og:description" content="Your Instagram feed but bigger.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bi.singuerinc.com/">
+
+    <meta property="og:image" content="https://bi.singuerinc.com/img/bi.png">
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image:type" content="image/jpg" />
+    <meta property="og:image:width" content="816" />
+    <meta property="og:image:height" content="816" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@singuerinc" />
+    <meta name="twitter:title" content="Bi" />
+    <meta name="twitter:description" content="Your Instagram feed but bigger." />
+    <meta name="twitter:image" content="https://bi.singuerinc.com/img/bi.png" />
+
     <link rel="stylesheet" href="css/main.css">
 
     <script>
@@ -22,7 +49,7 @@
 
     </script>
 </head>
-<body>
+<body class="home">
 <div id="app">
 
     <h1>Bi<small>by singuerinc</small></h1>
@@ -36,17 +63,17 @@
 
     <ul ref="zoom" class="zoom hide">
         <li>
-            <a class="x1" v-bind:class="{active: zoom == 'x1'}" v-on:click="zoom = 'x1'">
+            <a class="x1" v-bind:class="{active: zoom == 'x1'}" v-on:click="setZoom(1)">
                 <img src="img/ic_image_black_24px.svg" alt="x1">
             </a>
         </li>
         <li>
-            <a class="x2" v-bind:class="{active: zoom == 'x2'}" v-on:click="zoom = 'x2'">
+            <a class="x2" v-bind:class="{active: zoom == 'x2'}" v-on:click="setZoom(2)">
                 <img src="img/ic_image_black_24px.svg" alt="x2">
             </a>
         </li>
         <li>
-            <a class="x3" v-bind:class="{active: zoom == 'x3'}" v-on:click="zoom = 'x3'">
+            <a class="x3" v-bind:class="{active: zoom == 'x3'}" v-on:click="setZoom(3)">
                 <img src="img/ic_image_black_24px.svg" alt="x3">
             </a>
         </li>

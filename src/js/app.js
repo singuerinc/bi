@@ -9,14 +9,23 @@ new Vue({
             zoom: "x2"
         };
     },
-    computed: {
-        feedLength() {
-            return this.feed.data ? this.feed.data.length : "XX";
-        }
-    },
     methods: {
+        setZoom(zoom){
+            zoom = Math.max(0, Math.min(zoom, 3));
+            this.zoom = `x${zoom}`;
+            ga('send', 'event', {
+                eventCategory: 'Zoom Click',
+                eventAction: 'click',
+                eventLabel: this.zoom
+            });
+        },
         login(){
             const redirect_uri = location.href;
+            ga('send', 'event', {
+                eventCategory: 'Login Link',
+                eventAction: 'click',
+                eventLabel: redirect_uri
+            });
             location.href = `https://api.instagram.com/oauth/authorize/?client_id=cee9bf3af8b9426ca0fbe927aaa4b785&redirect_uri=${redirect_uri}&response_type=token`;
         },
         parse(data) {

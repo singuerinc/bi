@@ -1,48 +1,65 @@
 "use strict";
 
-const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
+const webpack = require("webpack");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
-    context: __dirname + "/src/js",
     entry: {
-        app: ["./app.js"]
+        app: "./src/main.js"
     },
     output: {
-        path: path.resolve(__dirname, "public"),
-        publicPath: "/",
-        filename: "js/[name].bundle.js"
-    },
-    // devtool: "#sourcemaps",
-    devServer: {
-        contentBase: __dirname + "/src"
+        path: path.resolve(__dirname, "./public"),
+        publicPath: "/public/",
+        filename: "main.min.js"
     },
     resolve: {
-        alias: {
-            vue$: "vue/dist/vue.min.js"
-        }
+        extensions: [".json", ".js"]
     },
     module: {
-        rules: [{
-            test: /\.js$/,
-            use: [{
-                loader: "babel-loader",
-                options: {
-                    presets: ["es2015"]
-                }
+        rules: [
+            {test: /\.vue$/, loader: 'vue-loader'},
+            {test: /\.js$/, include: [path.resolve(__dirname, './src')], loader: 'babel-loader'},
+            {test: /\.json/, loader: 'json-loader'},
+            {test: /\.svg/, loader: 'svg-url-loader'},
+            {test: /\.(png|jpg|jpeg|gif)$/, loader: 'file-loader?name=[name].[ext]'},
+            {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract({
+                    fallbackLoader: 'style-loader',
+                    loader: 'css-loader',
+                    publicPath: ''
+                })
             }]
-        }, {
-            test: /\.css$/,
-            use: ["style-loader", "css-loader"]
-        }]
     },
+    devtool: '#eval-source-map',
     plugins: [
-        new CopyWebpackPlugin([
-            { from: __dirname + "/src/index.html" },
-            { from: __dirname + "/src/css/main.css", to: __dirname + "/public/css/main.css" },
-            { from: __dirname + "/src/policy.html" },
-            { from: __dirname + "/src/img/**", to: __dirname + "/public/img/" },
-            { from: __dirname + "/src/pJTm63-FLBNR0ABO9Qdp4KaqbZbsyF_iw42oWTWZLnA", to: __dirname + "/public/.well-known/acme-challenge/pJTm63-FLBNR0ABO9Qdp4KaqbZbsyF_iw42oWTWZLnA/index.html" },
-        ])
+        new ExtractTextPlugin('bi.min.css'),
+        // new CopyWebpackPlugin([
+        //     {from: __dirname + "/src/index.html"},
+        //     {from: __dirname + "/src/policy.html"},
+        //     {from: __dirname + "/src/img/**", to: __dirname + "/public/img/"},
+        //     {
+        //         from: __dirname + "/src/pJTm63-FLBNR0ABO9Qdp4KaqbZbsyF_iw42oWTWZLnA",
+        //         to: __dirname + "/public/.well-known/acme-challenge/pJTm63-FLBNR0ABO9Qdp4KaqbZbsyF_iw42oWTWZLnA/index.html"
+        //     },
+        // ])
     ]
 };
+
+if (process.env.NODE_ENV === 'production') {
+    module.exports.devtool = false;
+    module.exports.plugins = (module.exports.plugins || []).concat([
+        new OptimizeCssAssetsPlugin(),
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        }),
+        new UnminifiedWebpackPlugin()
+    ]);
+}

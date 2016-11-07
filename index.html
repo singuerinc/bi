@@ -43,7 +43,7 @@
     <meta name="twitter:description" content="Your Instagram feed but bigger." />
     <meta name="twitter:image" content="https://bi.singuerinc.com/img/bi.png" />
 
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="public/bi.min.css">
 
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -59,51 +59,7 @@
     </script>
 </head>
 <body class="home">
-<div id="app">
-
-    <h1>Bi<small>by singuerinc</small></h1>
-    <h2>Your Instagram feed,<br>but bigger!</h2>
-
-    <div ref="login" class="login">
-        <a v-on:click="login">Login</a>
-        <p>Log in in order to display your photos.</p>
-        <p>Bi does not store any information.</p>
-    </div>
-
-    <ul ref="zoom" class="zoom hide">
-        <li>
-            <a class="x1" v-bind:class="{active: zoom == 'x1'}" v-on:click="setZoom(1)">
-                <img src="img/ic_image_black_24px.svg" alt="x1">
-            </a>
-        </li>
-        <li>
-            <a class="x2" v-bind:class="{active: zoom == 'x2'}" v-on:click="setZoom(2)">
-                <img src="img/ic_image_black_24px.svg" alt="x2">
-            </a>
-        </li>
-        <li>
-            <a class="x3" v-bind:class="{active: zoom == 'x3'}" v-on:click="setZoom(3)">
-                <img src="img/ic_image_black_24px.svg" alt="x3">
-            </a>
-        </li>
-    </ul>
-
-    <ul class="images" v-bind:class="zoom" v-cloak>
-        <li v-for="img in feed.data" class="image">
-            <h3 class="caption">
-                <span v-if="img.location" class="location">{{img.location.name}}</span>
-                <span v-if="img.caption" class="text">{{img.caption.text}}</span>
-                <!--<img :src="img.user.profile_picture" class="user">-->
-            </h3>
-            <img :src="get1080(img.images.standard_resolution)" class="img">
-        </li>
-    </ul>
-
-    <footer>
-        <p><a href="policy.html" target="_parent">Terms of Service and Privacy Policy</a></p>
-    </footer>
-
-</div>
-<script src="js/app.bundle.js" charset="utf-8"></script>
+    <div id="bi"></div>
+    <script src="public/main.min.js" charset="utf-8"></script>
 </body>
 </html>

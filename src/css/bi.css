@@ -1,0 +1,41 @@
+
+
+/* Small devices (landscape phones, 544px and up)*/
+@media (min-width: 544px) {
+
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+
+	.zoom {
+		display: block;
+	}
+
+	.images {
+		width: 480px;
+		margin: 2rem auto;
+	}
+
+	.images.x2 {
+		width: 640px;
+	}
+
+	.images.x3 {
+		width: 1080px;
+	}
+
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+	footer a {
+		color: #37474F;
+		text-decoration: none;
+	}
+}

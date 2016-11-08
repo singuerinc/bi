@@ -39,6 +39,7 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin('bi.min.css'),
         new CopyWebpackPlugin([
+            {from: __dirname + "/src/index.html"},
             {from: __dirname + "/src/policy.html"},
             {from: __dirname + "/src/img/bi.png", to: __dirname + "/public/img/bi.png"},
             {

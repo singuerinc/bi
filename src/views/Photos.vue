@@ -1,6 +1,7 @@
 <template>
     <div>
         <h1>Bi</h1>
+        <h2>Your Instagram™ feed, but bigger!</h2>
         <zoom></zoom>
         <ul class="images" v-bind:class="zoom" v-cloak>
             <li v-for="img in feed.data" class="image">
@@ -23,8 +24,16 @@
         margin: 0;
     }
 
+    .page-photos h2 {
+        color: #37474F;
+        font-size: 1.5rem;
+        margin: 1rem auto 2rem;
+        font-weight: normal;
+        text-align: center;
+    }
+
     .page-photos .images {
-        overflow: hidden;
+        list-style: none;
         margin: 0 auto 2rem;
     }
 
@@ -73,13 +82,17 @@
         .page-photos h1 {
             font-size: 12rem;
         }
-    }
 
-    @media (min-width: 992px) {
         .page-photos .images {
             width: 480px;
             margin: 2rem auto;
         }
+
+        .page-photos .images .image {
+            border: 2rem solid white;
+            box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.06);
+        }
+
 
         .page-photos .images.x2 {
             width: 640px;

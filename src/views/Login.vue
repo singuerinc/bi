@@ -3,7 +3,7 @@
         <h1>Bi
             <small>by singuerinc</small>
         </h1>
-        <h2>Your Instagram feed,<br>but bigger!</h2>
+        <h2>Your Instagram™ feed,<br>but bigger!</h2>
 
         <div ref="login" class="login">
             <a v-on:click="login">Login</a>

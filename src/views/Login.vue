@@ -15,14 +15,15 @@
 
 <style>
 
-    body {
+    .page-login {
         background-size: cover;
         background-position-y: 0;
         background-position-x: 50%;
         background: url(../img/rails.jpg) no-repeat;
     }
 
-    .login {
+    .page-login .login {
+        position: relative;
         width: 85vw;
         text-align: center;
         color: #607D8B;
@@ -30,7 +31,7 @@
         transition: color 1s;
     }
 
-    h1 {
+    .page-login h1 {
         color: white;
         font-size: 6rem;
         font-weight: bold;
@@ -38,22 +39,13 @@
         margin: 0;
     }
 
-    h1 small {
+    .page-login h1 small {
         font-size: 0.2em;
         font-weight: lighter;
         display: block;
     }
 
-    .app-mode h1 {
-        color: #546E7A;
-    }
-
-
-    .app-mode h1 small {
-        display: none;
-    }
-
-    h2 {
+    .page-login h2 {
         color: #37474F;
         font-size: 1.5rem;
         margin: 1rem auto 2rem;
@@ -61,15 +53,7 @@
         text-align: center;
     }
 
-    .app-mode h2 {
-        display: none;
-    }
-
-    .login {
-        position: relative;
-    }
-
-    .login a {
+    .page-login .login a {
         color: #CFD8DC;
         font-size: 2rem;
         margin: 2rem;
@@ -81,46 +65,41 @@
         transition: all 0.5s;
     }
 
-    .login a:hover {
+    .page-login .login a:hover {
         color: #37474F;
         background-color: white;
     }
 
-    .login p {
+    .page-login .login p {
         color: white;
         text-shadow: 1px 1px rgba(0, 0, 0, 0.6);
         font-size: 1.2rem;
         margin: 0;
     }
 
-    .login.hide {
-        display: none;
-    }
-
     /* Large devices (desktops, 992px and up)*/
-@media (min-width: 992px) {
-	h1 {
-		font-size: 12rem;
-	}
+    @media (min-width: 992px) {
+        .page-login h1 {
+            font-size: 12rem;
+        }
 
-	h1 small {
-		font-size: 0.12em;
-		display: block;
-	}
+        .page-login h1 small {
+            font-size: 0.12em;
+            display: block;
+        }
 
-	h2 {
-		font-size: 3rem;
-	}
-
-}
+        .page-login h2 {
+            font-size: 3rem;
+        }
+    }
 
 </style>
 
 <script>
-    export default{
+    export default {
         methods: {
             login(){
-                const redirect_uri = location.origin;
+                const redirect_uri = location.origin + "/";
                 ga('send', 'event', {
                     eventCategory: 'Login Link',
                     eventAction: 'click',
@@ -128,6 +107,9 @@
                 });
                 location.href = `https://api.instagram.com/oauth/authorize/?client_id=cee9bf3af8b9426ca0fbe927aaa4b785&redirect_uri=${redirect_uri}&response_type=token`;
             },
+        },
+        created() {
+            document.body.className = "page-login";
         }
     }
 </script>

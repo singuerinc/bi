@@ -87,51 +87,6 @@ body {
 	pointer-events: none;
 }
 
-.images {
-	overflow: hidden;
-	margin: 0 auto 2rem;
-}
-
-.images .image {
-	position: relative;
-	margin: 0 auto 2rem;
-}
-
-.images .image:last-child {
-	position: relative;
-	margin: 0 auto;
-}
-
-.images .image .img {
-	width: 100%;
-}
-
-.images .image .caption {
-	font-size: 2rem;
-	padding: 0.5rem;
-	position: absolute;
-	top: 1rem;
-	left: 1rem;
-	color: white;
-}
-
-.images .image .caption .text {
-	display: block;
-	text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
-}
-
-.images .image .caption .location {
-	font-size: 1rem;
-	display: block;
-	text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
-}
-
-.images .image .caption .user {
-	margin: 1rem 0 0;
-	width: 5rem;
-	border-radius: 100%;
-	box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.1);
-}
 
 footer {
 	display: block;
@@ -143,7 +98,7 @@ footer {
 	width: 100%;
 }
 
-.app-mode footer {
+.page-photos footer {
 	position: relative;
 	bottom: auto;
 }
@@ -153,38 +108,42 @@ footer a {
 	text-decoration: none;
 }
 
-.app-mode footer a {
+footer a {
 	color: #37474F;
 }
+
+/* Small devices (landscape phones, 544px and up)*/
+@media (min-width: 544px) {
+
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+
+	.zoom {
+		display: block;
+	}
+
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+	footer a {
+		color: #37474F;
+		text-decoration: none;
+	}
+}
+
 </style>
 
 <template>
     <div id="bi">
         <router-view></router-view>
-
-
-        <ul ref="zoom" class="zoom hide">
-            <li>
-                <a class="x1" v-bind:class="{active: zoom == 'x1'}" v-on:click="setZoom(1)"></a>
-            </li>
-            <li>
-                <a class="x2" v-bind:class="{active: zoom == 'x2'}" v-on:click="setZoom(2)"></a>
-            </li>
-            <li>
-                <a class="x3" v-bind:class="{active: zoom == 'x3'}" v-on:click="setZoom(3)"></a>
-            </li>
-        </ul>
-
-        <ul class="images" v-bind:class="zoom" v-cloak>
-            <li v-for="img in feed.data" class="image">
-                <h3 class="caption">
-                    <span v-if="img.location" class="location">{{img.location.name}}</span>
-                    <span v-if="img.caption" class="text">{{img.caption.text}}</span>
-                    <!--<img :src="img.user.profile_picture" class="user">-->
-                </h3>
-                <img :src="get1080(img.images.standard_resolution)" class="img">
-            </li>
-        </ul>
 
         <footer>
             <p><a href="policy.html" target="_parent">Terms of Service and Privacy Policy</a></p>
@@ -195,65 +154,6 @@ footer a {
 <script type="text/ecmascript-6">
 
     export default {
-        name: "Bi",
-        data() {
-            return {
-                feed: {},
-                zoom: "x2"
-            };
-        },
-        methods: {
-            setZoom(zoom){
-                zoom = Math.max(0, Math.min(zoom, 3));
-                this.zoom = `x${zoom}`;
-                ga('send', 'event', {
-                    eventCategory: 'Zoom Click',
-                    eventAction: 'click',
-                    eventLabel: this.zoom
-                });
-            },
-            parse(data) {
-                this.feed = data;
-            },
-            get1080(data){
-                let url = data.url, width, height;
 
-                ({width, height} = data);
-
-                url = url.replace(`${width}x`, "1080x");
-                url = url.replace(`x${width}`, "x1080");
-
-                return url;
-            }
-        },
-        created() {
-            window._biParse = this.parse;
-
-            let token;
-
-            try {
-                token = location.hash.match(/^#access_token=(.+)$/)[1];
-            } catch (e) {
-                token = null;
-            }
-
-            // try {
-            //     history.pushState("", document.title, window.location.pathname);
-            // } catch (e) {
-            // }
-
-            if (token !== null) {
-                this.$nextTick(() => {
-                    document.body.classList.add("app-mode");
-                    this.$refs.login.classList.add("hide");
-                    this.$refs.zoom.classList.remove("hide");
-                });
-
-                let script = document.createElement("script"),
-                        header = document.getElementsByTagName("head");
-                script.src = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${token}&scope=basic,public_content&callback=_biParse`;
-                header[0].appendChild(script);
-            }
-        }
     }
 </script>

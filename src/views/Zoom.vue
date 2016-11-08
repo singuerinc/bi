@@ -60,7 +60,7 @@
 
     export default {
         computed: {
-           zoom: () => store.state.photos_zoom
+           zoom: () => store.state.feed_zoom
         },
         methods: {
             setZoom(zoom){
@@ -69,7 +69,7 @@
                 ga('send', 'event', {
                     eventCategory: 'Zoom Click',
                     eventAction: 'click',
-                    eventLabel: store.state.photos_zoom
+                    eventLabel: store.state.feed_zoom
                 });
             }
         }

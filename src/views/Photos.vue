@@ -9,7 +9,7 @@
                     <span v-if="img.caption" class="text">{{img.caption.text}}</span>
                     <img :src="img.user.profile_picture" class="user">
                 </h3>
-                <img :src="get1080(img.images.standard_resolution)" class="img">
+                <img :src="img.images.standard_resolution.url" class="img">
             </li>
         </ul>
     </div>
@@ -22,7 +22,6 @@
         text-align: center;
         margin: 0;
     }
-
 
     .page-photos .images {
         overflow: hidden;
@@ -101,34 +100,15 @@
         components: {
             "zoom": Zoom
         },
-        data() {
-            return {
-                feed: {},
-            };
-        },
         computed: {
-            zoom: () => store.state.photos_zoom
-        },
-        methods: {
-            parse(data) {
-                this.feed = data;
-            },
-            get1080(data){
-                let url = data.url, width, height;
-
-                ({width, height} = data);
-
-                url = url.replace(`${width}x`, "1080x");
-                url = url.replace(`x${width}`, "x1080");
-
-                return url;
-            }
+            zoom: () => store.state.feed_zoom,
+            feed: () => store.state.feed
         },
         created() {
 
             document.body.className = "page-photos";
 
-            window._biParse = this.parse;
+            window._biParse = (data) => store.dispatch('PARSE_FEED', data);
 
             let token = this.$store.state.access_token,
                     script = document.createElement("script"),

@@ -85,7 +85,7 @@
         }
 
         .page-photos .images {
-            width: 480px;
+            width: 64rem;
             margin: 2rem auto;
         }
 
@@ -96,11 +96,11 @@
 
 
         .page-photos .images.x2 {
-            width: 640px;
+            width: 108rem;
         }
 
         .page-photos .images.x3 {
-            width: 1080px;
+            width: 128rem;
         }
     }
 

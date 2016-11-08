@@ -34,58 +34,7 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.zoom {
-	display: none;
-	margin: 0 2rem 2rem 0;
-	text-align: center;
-	position: fixed;
-	bottom: 0;
-	right: 0;
-}
 
-.zoom.hide {
-	display: none;
-}
-
-.zoom li {
-	display: inline-block;
-}
-
-.zoom li a {
-	color: #78909C;
-	font-size: 3rem;
-	font-weight: lighter;
-	text-decoration: none;
-	margin: 0 0 0 0.5rem;
-	transition: opacity 0.2s;
-	opacity: 0.3;
-	cursor: pointer;
-    display: block;
-	vertical-align: bottom;
-}
-
-.zoom li a.x1 {
-	width: 24px;
-	height: 24px;
-	background: url(img/ic_image_black_24px.svg);
-}
-
-.zoom li a.x2 {
-	width: 32px;
-	height: 32px;
-	background: url(img/ic_image_black_24px.svg);
-}
-
-.zoom li a.x3 {
-	width: 48px;
-	height: 48px;
-	background: url(img/ic_image_black_24px.svg);
-}
-
-.zoom li a.active {
-	opacity: 1;
-	pointer-events: none;
-}
 
 
 footer {

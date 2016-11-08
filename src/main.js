@@ -1,4 +1,3 @@
-import styles from "./css/bi.css";
 import Vue from 'vue';
 import Bi from './Bi.vue';
 import store from './store';

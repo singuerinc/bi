@@ -13,7 +13,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, "./public"),
-        publicPath: "/public/",
+        publicPath: "/",
         filename: "main.min.js"
     },
     resolve: {
@@ -38,15 +38,14 @@ module.exports = {
     devtool: '#eval-source-map',
     plugins: [
         new ExtractTextPlugin('bi.min.css'),
-        // new CopyWebpackPlugin([
-        //     {from: __dirname + "/src/index.html"},
-        //     {from: __dirname + "/src/policy.html"},
-        //     {from: __dirname + "/src/img/**", to: __dirname + "/public/img/"},
-        //     {
-        //         from: __dirname + "/src/pJTm63-FLBNR0ABO9Qdp4KaqbZbsyF_iw42oWTWZLnA",
-        //         to: __dirname + "/public/.well-known/acme-challenge/pJTm63-FLBNR0ABO9Qdp4KaqbZbsyF_iw42oWTWZLnA/index.html"
-        //     },
-        // ])
+        new CopyWebpackPlugin([
+            {from: __dirname + "/src/policy.html"},
+            {from: __dirname + "/src/img/bi.png", to: __dirname + "/public/img/bi.png"},
+            {
+                from: __dirname + "/src/pJTm63-FLBNR0ABO9Qdp4KaqbZbsyF_iw42oWTWZLnA",
+                to: __dirname + "/public/.well-known/acme-challenge/pJTm63-FLBNR0ABO9Qdp4KaqbZbsyF_iw42oWTWZLnA/index.html"
+            },
+        ])
     ]
 };
 

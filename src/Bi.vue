@@ -34,9 +34,6 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-
-
-
 footer {
 	display: block;
 	text-align: center;

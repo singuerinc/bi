@@ -5,11 +5,11 @@
         <zoom></zoom>
         <ul class="images" v-bind:class="zoom" v-cloak>
             <li v-for="img in feed.data" class="image">
-                <h3 class="caption">
+                <div class="caption">
                     <span v-if="img.location" class="location">{{img.location.name}}</span>
                     <span v-if="img.caption" class="text">{{img.caption.text}}</span>
                     <img :src="img.user.profile_picture" class="user">
-                </h3>
+                </div>
                 <img :src="img.images.standard_resolution.url" class="img">
             </li>
         </ul>
@@ -17,7 +17,7 @@
 </template>
 <style>
     .page-photos h1 {
-        color: #546E7A;
+        color: #00e971;
         font-size: 6rem;
         font-weight: bold;
         text-align: center;
@@ -25,7 +25,7 @@
     }
 
     .page-photos h2 {
-        color: #37474F;
+        color: #777;
         font-size: 1.5rem;
         margin: 1rem auto 2rem;
         font-weight: normal;
@@ -52,26 +52,27 @@
     }
 
     .page-photos .images .image .caption {
+        display: none;
         font-size: 2rem;
+        font-weight: bold;
         padding: 0.5rem;
         position: absolute;
         top: 1rem;
         left: 1rem;
-        color: white;
+        color: #212121;
     }
 
     .page-photos .images .image .caption .text {
         display: block;
-        text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
     }
 
     .page-photos .images .image .caption .location {
         font-size: 1rem;
         display: block;
-        text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
     }
 
     .page-photos .images .image .caption .user {
+        display: none;
         margin: 1rem 0 0;
         width: 5rem;
         border-radius: 100%;
@@ -90,7 +91,7 @@
 
         .page-photos .images .image {
             border: 2rem solid white;
-            box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.06);
+            box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.4);
         }
 
 

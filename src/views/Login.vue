@@ -46,7 +46,7 @@
     }
 
     .page-login h2 {
-        color: #37474F;
+        color: #212121;
         font-size: 1.5rem;
         margin: 1rem auto 2rem;
         font-weight: normal;
@@ -54,25 +54,24 @@
     }
 
     .page-login .login a {
-        color: #CFD8DC;
+        color: #212121;
         font-size: 2rem;
         margin: 2rem;
         display: inline-block;
         text-decoration: none;
-        background-color: #37474F;
+        background-color: #00e971;
         padding: 1rem 2rem;
         cursor: pointer;
         transition: all 0.5s;
     }
 
     .page-login .login a:hover {
-        color: #37474F;
-        background-color: white;
+        color: #00e971;
+        background-color: #212121;
     }
 
     .page-login .login p {
         color: white;
-        text-shadow: 1px 1px rgba(0, 0, 0, 0.6);
         font-size: 1.2rem;
         margin: 0;
     }

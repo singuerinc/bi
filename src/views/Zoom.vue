@@ -7,6 +7,7 @@
 </template>
 <style>
     .page-photos .zoom {
+        display: none;
         margin: 0 2rem 2rem 0;
         text-align: center;
         position: fixed;
@@ -53,6 +54,12 @@
     .page-photos .zoom li a.active {
         opacity: 1;
         pointer-events: none;
+    }
+
+    @media (min-width: 992px) {
+        .page-photos .zoom {
+            display: block;
+        }
     }
 </style>
 <script type="text/ecmascript-6">

@@ -20,7 +20,7 @@ html {
 }
 
 html, body {
-	background-color: #ECEFF1;
+	background-color: #212121;
 	height: 100%;
 }
 
@@ -55,7 +55,7 @@ footer a {
 }
 
 footer a {
-	color: #37474F;
+	color: #777;
 }
 
 /* Small devices (landscape phones, 544px and up)*/
@@ -79,10 +79,7 @@ footer a {
 
 /* Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
-	footer a {
-		color: #37474F;
-		text-decoration: none;
-	}
+
 }
 
 

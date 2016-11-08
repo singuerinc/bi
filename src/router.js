@@ -14,7 +14,7 @@ const routes = [
         name: 'photos',
         component: Photos,
         beforeEnter: (to, from, next) => {
-            if(store.state.access_token == ""){
+            if (store.state.access_token == "") {
                 next("/login");
             } else {
                 next();
@@ -33,6 +33,13 @@ const routes = [
                 next("/login");
             }
 
+        }
+    },
+    {
+        path: '/logout',
+        beforeEnter: (to, from, next) => {
+            store.commit("SET_ACCESS_TOKEN", "");
+            next("/login");
         }
     },
     {

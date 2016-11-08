@@ -6,7 +6,7 @@
         <h2>Your Instagram™ feed,<br>but bigger!</h2>
 
         <div ref="login" class="login">
-            <a v-on:click="login">Login</a>
+            <a v-on:click.stop.prevent="login">Login</a>
             <p>Log in in order to display your photos.</p>
             <p>Bi does not store any information.</p>
         </div>
@@ -94,7 +94,7 @@
 
 </style>
 
-<script>
+<script type="text/ecmascript-6">
     export default {
         methods: {
             login(){

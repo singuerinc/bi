@@ -34,20 +34,20 @@
     }
 
     .page-photos .zoom li a.x1 {
-        width: 24px;
-        height: 24px;
+        width: 18px;
+        height: 18px;
         background: url(../img/ic_image_black_24px.svg);
     }
 
     .page-photos .zoom li a.x2 {
-        width: 32px;
-        height: 32px;
+        width: 27px;
+        height: 27px;
         background: url(../img/ic_image_black_24px.svg);
     }
 
     .page-photos .zoom li a.x3 {
-        width: 48px;
-        height: 48px;
+        width: 36px;
+        height: 36px;
         background: url(../img/ic_image_black_24px.svg);
     }
 

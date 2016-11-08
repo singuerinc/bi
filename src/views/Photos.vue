@@ -2,7 +2,8 @@
     <div>
         <h1>Bi</h1>
         <h2>Your Instagram™ feed, but bigger!</h2>
-        <zoom></zoom>
+        <logout />
+        <zoom />
         <ul class="images" v-bind:class="zoom" v-cloak>
             <li v-for="img in feed.data" class="image">
                 <div class="caption">
@@ -107,11 +108,13 @@
 </style>
 <script type="text/ecmascript-6">
 
+    import Logout from "./Logout.vue";
     import Zoom from "./Zoom.vue";
     import store from "../store";
 
     export default {
         components: {
+            "logout": Logout,
             "zoom": Zoom
         },
         computed: {

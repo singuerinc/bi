@@ -6,9 +6,8 @@
         <h2>Your Instagram™ feed,<br>but bigger!</h2>
 
         <div ref="login" class="login">
-            <a v-on:click.stop.prevent="login">Login</a>
-            <p>Log in in order to display your photos.</p>
-            <p>Bi does not store any information.</p>
+            <a class="login-btn" v-on:click.stop.prevent="login">Login</a>
+            <a class="policy-btn" href="policy.html" target="_parent">Terms of Service and Privacy Policy</a>
         </div>
     </div>
 </template>
@@ -16,10 +15,11 @@
 <style>
 
     .page-login {
+        transition: background-image 1.5s ease-in-out;
+        background-image: url(../img/rails.jpg);
         background-size: cover;
-        background-position-y: 0;
-        background-position-x: 50%;
-        background: url(../img/rails.jpg) no-repeat;
+        background-repeat: no-repeat;
+        background-position: center 40%;
     }
 
     .page-login .login {
@@ -32,7 +32,7 @@
     }
 
     .page-login h1 {
-        color: white;
+        color: #212121;
         font-size: 6rem;
         font-weight: bold;
         text-align: center;
@@ -53,7 +53,7 @@
         text-align: center;
     }
 
-    .page-login .login a {
+    .page-login .login .login-btn {
         color: #212121;
         font-size: 2rem;
         margin: 2rem;
@@ -65,19 +65,30 @@
         transition: all 0.5s;
     }
 
-    .page-login .login a:hover {
+    .page-login .login .login-btn:hover {
         color: #00e971;
         background-color: #212121;
     }
 
-    .page-login .login p {
-        color: white;
+    .page-login .login .policy-btn {
+        display: block;
+        color: #212121;
+        text-decoration: none;
+        text-align: center;
         font-size: 1.2rem;
-        margin: 0;
+        width: 100%;
     }
 
-    /* Large devices (desktops, 992px and up)*/
+    @media (min-width: 544px) {
+
+    }
+
+    @media (min-width: 768px) {
+
+    }
+
     @media (min-width: 992px) {
+
         .page-login h1 {
             font-size: 12rem;
         }
@@ -91,6 +102,11 @@
             font-size: 3rem;
         }
     }
+
+    @media (min-width: 1200px) {
+    }
+
+
 
 </style>
 

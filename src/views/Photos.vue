@@ -14,9 +14,18 @@
                 <img :src="img.images.standard_resolution.url" class="img">
             </li>
         </ul>
+        <footer>
+            <a href="policy.html" target="_parent">Terms of Service and Privacy Policy</a>
+        </footer>
     </div>
 </template>
 <style>
+
+    .page-photos {
+        transition: background-image 1.5s ease-in-out;
+        background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+    }
+
     .page-photos h1 {
         color: #00e971;
         font-size: 6rem;
@@ -78,6 +87,23 @@
         width: 5rem;
         border-radius: 100%;
         box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .page-photos footer {
+        display: block;
+        text-align: center;
+        font-size: 1.2rem;
+        padding: 3rem;
+    }
+
+    .page-photos footer a {
+        color: white;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .page-photos footer a:hover {
+        text-decoration: underline;
     }
 
     @media (min-width: 992px) {

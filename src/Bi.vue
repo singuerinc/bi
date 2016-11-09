@@ -1,4 +1,39 @@
 <style>
+.bg-navy { background-color: #001F3F; }
+.bg-blue { background-color: #0074D9; }
+.bg-aqua { background-color: #7FDBFF; }
+.bg-teal { background-color: #39CCCC; }
+.bg-olive { background-color: #3D9970; }
+.bg-green { background-color: #2ECC40; }
+.bg-lime { background-color: #01FF70; }
+.bg-yellow { background-color: #FFDC00; }
+.bg-orange { background-color: #FF851B; }
+.bg-red { background-color: #FF4136; }
+.bg-fuchsia { background-color: #F012BE; }
+.bg-purple { background-color: #B10DC9; }
+.bg-maroon { background-color: #85144B; }
+.bg-white { background-color: #FFFFFF; }
+.bg-gray { background-color: #AAAAAA; }
+.bg-silver { background-color: #DDDDDD; }
+.bg-black { background-color: #111111; }
+/* Colors */
+.navy { color: #001F3F; }
+.blue { color: #0074D9; }
+.aqua { color: #7FDBFF; }
+.teal { color: #39CCCC; }
+.olive { color: #3D9970; }
+.green { color: #2ECC40; }
+.lime { color: #01FF70; }
+.yellow { color: #FFDC00; }
+.orange { color: #FF851B; }
+.red { color: #FF4136; }
+.fuchsia { color: #F012BE; }
+.purple { color: #B10DC9; }
+.maroon { color: #85144B; }
+.white { color: #FFFFFF; }
+.silver { color: #DDDDDD; }
+.gray { color: #AAAAAA; }
+.black { color: #111111; }
 
 [v-cloak] {
 	visibility: hidden;
@@ -34,41 +69,14 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-footer {
-	display: block;
-	text-align: center;
-	padding: 3rem 0 5rem;
-	font-size: 1.2rem;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-}
-
-.page-photos footer {
-	position: relative;
-	bottom: auto;
-}
-
-footer a {
-	color: white;
-	text-decoration: none;
-}
-
-footer a {
-	color: #777;
-}
-
-/* Small devices (landscape phones, 544px and up)*/
 @media (min-width: 544px) {
 
 }
 
-/* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
 
 }
 
-/* Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
 
 	.zoom {
@@ -77,7 +85,6 @@ footer a {
 
 }
 
-/* Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
 
 }
@@ -88,10 +95,6 @@ footer a {
 <template>
     <div id="bi">
         <router-view></router-view>
-
-        <footer>
-            <p><a href="policy.html" target="_parent">Terms of Service and Privacy Policy</a></p>
-        </footer>
     </div>
 </template>
 

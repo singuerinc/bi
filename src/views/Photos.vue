@@ -22,9 +22,8 @@
 <style>
 
     .page-photos {
-        transition: background 1.5s ease-in-out;
+        transition: background-image 1.5s ease-in-out;
         background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
-        background-position: center 40%;
     }
 
     .page-photos h1 {

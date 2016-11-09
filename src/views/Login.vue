@@ -15,7 +15,7 @@
 <style>
 
     .page-login {
-        transition: background 1.5s ease-in-out;
+        transition: background-image 1.5s ease-in-out;
         background-image: url(../img/rails.jpg);
         background-size: cover;
         background-repeat: no-repeat;

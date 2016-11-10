@@ -4,6 +4,7 @@ stages:
 - build
 - test
 - deploy
+- docker
 
 variables:
   CONTAINER_TEST_IMAGE: registry.gitlab.com/singuerinc-labs/bi:$CI_BUILD_TAG
@@ -36,7 +37,7 @@ pages:push-docker-images:
   services:
   - docker:dind
   environment: production
-  stage: deploy
+  stage: docker
   script:
   - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
   - docker build -t $CONTAINER_TEST_IMAGE .

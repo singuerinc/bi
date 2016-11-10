@@ -1,7 +1,13 @@
 image: node:7-slim
 
 stages:
-  - deploy
+- build
+- test
+- deploy
+
+variables:
+  CONTAINER_TEST_IMAGE: registry.gitlab.com/singuerinc-labs/bi:$CI_BUILD_TAG
+  CONTAINER_RELEASE_IMAGE: registry.gitlab.com/singuerinc-labs/bi:latest
 
 cache:
   paths:
@@ -19,3 +25,18 @@ pages:
     - public
   only:
       - tags
+
+pages:push-docker-images:
+  image: docker:git
+  services:
+  - docker:dind
+  environment: production
+  stage: deploy
+  script:
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+  - docker build -t $CONTAINER_TEST_IMAGE .
+  - docker push $CONTAINER_TEST_IMAGE
+  - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
+  - docker push $CONTAINER_RELEASE_IMAGE
+  only:
+  - tags

@@ -3,7 +3,7 @@ services:
   app:
     build:
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-dev
     image: singuerinc-labs/bi
     command: yarn run dev
     stdin_open: true

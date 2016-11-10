@@ -69,6 +69,26 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.u-btn {
+    color: #212121;
+    font-size: 2rem;
+    margin: 2rem;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #00e971;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: color 0.5s, background-color 0.5s;
+    border: 1px solid transparent;
+}
+
+.u-btn:hover {
+    color: #00e971;
+    background-color: #212121;
+    border: 1px solid #00e971;
+}
+
+
 @media (min-width: 544px) {
 
 }

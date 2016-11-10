@@ -9,7 +9,12 @@ const storage = new Storage();
 const state = {
     access_token: '',
     feed_zoom: 'x3',
-    feed: '',
+    feed: {
+        data: [],
+        pagination: {
+            next_url: null
+        }
+    },
 };
 
 const mutations = {
@@ -21,8 +26,10 @@ const mutations = {
         state.feed_zoom = zoom;
         storage.saveFeedZoom(zoom);
     },
-    SET_FEED (state, feed) {
-        state.feed = feed;
+    ADD_FEED (state, feed) {
+        state.feed.data = state.feed.data.concat(feed.data);
+        state.feed.pagination = feed.pagination;
+        state.feed.meta = feed.meta;
     }
 };
 
@@ -39,7 +46,7 @@ const actions = {
             return img;
         });
 
-        commit("SET_FEED", data);
+        commit("ADD_FEED", data);
     }
 };
 

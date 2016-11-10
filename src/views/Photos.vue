@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <div class="Photos">
         <h1>Bi</h1>
         <h2>Your Instagram™ feed, but bigger!</h2>
-        <logout />
-        <zoom />
+        <logout/>
+        <zoom/>
         <ul class="images" v-bind:class="zoom" v-cloak>
             <li v-for="img in feed.data" class="image">
                 <div class="caption">
@@ -14,12 +14,24 @@
                 <img :src="img.images.standard_resolution.url" class="img">
             </li>
         </ul>
+        <div class="Photos-pagination">
+            <a class="Photos-pagination-btn u-btn" v-show="feed.pagination.next_url" v-on:click.stop.prevent="nextPage()">More</a>
+        </div>
         <footer>
             <a href="policy.html" target="_parent">Terms of Service and Privacy Policy</a>
         </footer>
     </div>
 </template>
 <style>
+
+    .Photos .Photos-pagination {
+        display: block;
+        text-align: center;
+    }
+
+    .Photos .Photos-pagination .Photos-pagination-btn {
+
+    }
 
     .page-photos {
         transition: background-image 1.5s ease-in-out;
@@ -131,6 +143,10 @@
         }
     }
 
+
+
+
+
 </style>
 <script type="text/ecmascript-6">
 
@@ -147,17 +163,25 @@
             zoom: () => store.state.feed_zoom,
             feed: () => store.state.feed
         },
-        created() {
+        methods: {
+            loadPage(url){
+                window._biParse = (data) => store.dispatch('PARSE_FEED', data);
 
+                let script = document.createElement("script"),
+                        header = document.getElementsByTagName("head");
+                script.src = url;
+                header[0].appendChild(script);
+            },
+            nextPage(){
+                this.loadPage(this.$store.state.feed.pagination.next_url);
+            }
+        },
+        created() {
             document.body.className = "page-photos";
 
-            window._biParse = (data) => store.dispatch('PARSE_FEED', data);
+            let token = this.$store.state.access_token;
 
-            let token = this.$store.state.access_token,
-                    script = document.createElement("script"),
-                    header = document.getElementsByTagName("head");
-            script.src = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${token}&scope=basic,public_content&callback=_biParse`;
-            header[0].appendChild(script);
+            this.loadPage(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${token}&scope=basic,public_content&callback=_biParse`);
         }
     }
 </script>

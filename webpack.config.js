@@ -30,13 +30,20 @@ module.exports = {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract({
                     fallbackLoader: 'style-loader',
-                    loader: 'css-loader',
+                    loader: 'css-loader!postcss-loader',
                     publicPath: ''
                 })
             }]
     },
     devtool: '#eval-source-map',
     plugins: [
+        new webpack.LoaderOptionsPlugin({
+            vue: {
+                postcss: [
+                    require('postcss-cssnext')()
+                ]
+            }
+        }),
         new ExtractTextPlugin('bi.min.css'),
         new CopyWebpackPlugin([
             {from: __dirname + "/src/index.html"},

@@ -1,29 +1,27 @@
 <template>
-    <div>
-        <div class="logout">
-            <a v-on:click.stop.prevent="logout">Logout</a>
-        </div>
+    <div class="Logout">
+        <a v-on:click.stop.prevent="logout">Logout</a>
     </div>
 </template>
 
 <style>
 
-    .logout {
-        position: absolute;
-        color: #00e971;
-        margin: 2rem;
-        top: 0;
-        right: 0;
-        font-size: 1.4rem;
-    }
+:root {
+  --bi-green: #00e971;
+}
 
-    .logout a {
+.Logout {
+    position: absolute;
+    color: var(--bi-green);
+    margin: 2rem;
+    top: 0;
+    right: 0;
+    font-size: 1.4rem;
+
+    & a {
         cursor: pointer;
     }
-
-    @media (min-width: 992px) {
-
-    }
+}
 
 </style>
 

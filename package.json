@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "yarn && webpack-dev-server --content-base ./src --inline --hot --host 0.0.0.0 --port 8080",
     "build": "rm -rf public && NODE_ENV=production webpack --display-error-details --progress --hide-modules",
-    "test": "ava test --compilers js:babel-register"
+    "test": "ava ./test/**/*.js --compilers js:babel-register -v --fail-fast"
   },
   "author": "singuerinc <nahuel.scotti@gmail.com>",
   "license": "MIT",

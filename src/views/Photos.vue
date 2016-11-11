@@ -14,39 +14,32 @@
                 <img :src="img.images.standard_resolution.url" class="img">
             </li>
         </ul>
-        <div class="Photos-pagination">
-            <a class="Photos-pagination-btn u-btn" v-show="feed.pagination.next_url" v-on:click.stop.prevent="nextPage()">More</a>
+        <div class="pagination">
+            <a class="u-btn more-btn" v-show="feed.pagination.next_url" v-on:click.stop.prevent="nextPage()">More</a>
         </div>
         <footer>
             <a href="policy.html" target="_parent">Terms of Service and Privacy Policy</a>
         </footer>
     </div>
 </template>
+
 <style>
 
-    .Photos .Photos-pagination {
-        display: block;
-        text-align: center;
-    }
+:root {
+  --bi-green: #00e971;
+  --bi-black: #212121;
+}
 
-    .Photos .Photos-pagination .Photos-pagination-btn {
-
-    }
-
-    .page-photos {
-        transition: background-image 1.5s ease-in-out;
-        background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
-    }
-
-    .page-photos h1 {
-        color: #00e971;
+.Photos {
+    & h1 {
+        color: var(--bi-green);
         font-size: 6rem;
         font-weight: bold;
         text-align: center;
         margin: 0;
     }
 
-    .page-photos h2 {
+    & h2 {
         color: #777;
         font-size: 1.5rem;
         margin: 1rem auto 2rem;
@@ -54,98 +47,111 @@
         text-align: center;
     }
 
-    .page-photos .images {
+    & .images {
         list-style: none;
         margin: 0 auto 2rem;
+
+        & .image {
+            position: relative;
+            margin: 0 auto 2rem;
+
+            &:last-child {
+                position: relative;
+                margin: 0 auto;
+            }
+
+            & .img {
+                width: 100%;
+            }
+
+            & .caption {
+                display: none;
+                font-size: 2rem;
+                font-weight: bold;
+                padding: 0.5rem;
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+                color: #212121;
+
+                & .text {
+                    display: block;
+                }
+
+                & .location {
+                    font-size: 1rem;
+                    display: block;
+                }
+
+                & .user {
+                    display: none;
+                    margin: 1rem 0 0;
+                    width: 5rem;
+                    border-radius: 100%;
+                    box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.1);
+                }
+            }
+        }
     }
 
-    .page-photos .images .image {
-        position: relative;
-        margin: 0 auto 2rem;
-    }
-
-    .page-photos .images .image:last-child {
-        position: relative;
-        margin: 0 auto;
-    }
-
-    .page-photos .images .image .img {
-        width: 100%;
-    }
-
-    .page-photos .images .image .caption {
-        display: none;
-        font-size: 2rem;
-        font-weight: bold;
-        padding: 0.5rem;
-        position: absolute;
-        top: 1rem;
-        left: 1rem;
-        color: #212121;
-    }
-
-    .page-photos .images .image .caption .text {
-        display: block;
-    }
-
-    .page-photos .images .image .caption .location {
-        font-size: 1rem;
-        display: block;
-    }
-
-    .page-photos .images .image .caption .user {
-        display: none;
-        margin: 1rem 0 0;
-        width: 5rem;
-        border-radius: 100%;
-        box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.1);
-    }
-
-    .page-photos footer {
+    & footer {
         display: block;
         text-align: center;
         font-size: 1.2rem;
         padding: 3rem;
+
+        & a {
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 
-    .page-photos footer a {
-        color: white;
-        cursor: pointer;
-        text-decoration: none;
-    }
+    & .pagination {
+        display: block;
+        text-align: center;
 
-    .page-photos footer a:hover {
-        text-decoration: underline;
+        & .more-btn {
+            margin: 2rem;
+        }
     }
+}
 
-    @media (min-width: 992px) {
-        .page-photos h1 {
+.page-photos {
+    transition: background-image 1.5s ease-in-out;
+    background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+}
+
+
+
+@media (min-width: 992px) {
+    .Photos {
+        & h1 {
             font-size: 12rem;
         }
 
-        .page-photos .images {
+        & .images {
             width: 64rem;
             margin: 2rem auto;
-        }
 
-        .page-photos .images .image {
-            border: 2rem solid white;
-            box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.4);
-        }
+            & .image {
+                border: 2rem solid white;
+                box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.4);
+                &.x2 {
+                    width: 108rem;
+                }
 
-
-        .page-photos .images.x2 {
-            width: 108rem;
-        }
-
-        .page-photos .images.x3 {
-            width: 128rem;
+                &.x3 {
+                    width: 128rem;
+                }
+            }
         }
     }
-
-
-
-
+}
 
 </style>
 <script type="text/ecmascript-6">

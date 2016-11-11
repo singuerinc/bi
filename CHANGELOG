@@ -1,0 +1,11 @@
+# bi
+
+## [3.0.0] - 2016-11-11
+- Add PostCSS support
+
+## [2.0.0] - 2016-11-10
+- Make Docker images on deploy
+
+## [1.0.0] - 2016-11-09
+- Init Bi
+- project structure

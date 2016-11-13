@@ -138,16 +138,17 @@
             width: 64rem;
             margin: 2rem auto;
 
+            &.x2 {
+                width: 108rem;
+            }
+
+            &.x3 {
+                width: 128rem;
+            }
+
             & .image {
                 border: 2rem solid white;
                 box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.4);
-                &.x2 {
-                    width: 108rem;
-                }
-
-                &.x3 {
-                    width: 128rem;
-                }
             }
         }
     }

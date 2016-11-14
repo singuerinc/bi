@@ -1,8 +1,8 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-import Login from './views/Login.vue';
-import Photos from './views/Photos.vue';
+import Login from "./views/Login.vue";
+import Photos from "./views/Photos.vue";
 
 import store from "./store";
 
@@ -10,41 +10,43 @@ Vue.use(VueRouter);
 
 const routes = [
     {
-        path: '/',
-        name: 'photos',
+        path: "/",
+        name: "photos",
         component: Photos,
         beforeEnter: (to, from, next) => {
-            if (store.state.access_token == "") {
+            if (store.state.accessToken === "") {
                 next("/login");
-            } else {
+            }
+            else {
                 next();
             }
         }
     },
     {
-        path: '/access_token*',
+        path: "/access_token*",
         beforeEnter: (to, from, next) => {
             let token;
+
             try {
                 token = to.path.match(/^\/access_token=(.+)$/)[1];
                 store.commit("SET_ACCESS_TOKEN", token);
                 next("/");
-            } catch (e) {
+            }
+            catch (e) {
                 next("/login");
             }
-
         }
     },
     {
-        path: '/logout',
+        path: "/logout",
         beforeEnter: (to, from, next) => {
             store.commit("SET_ACCESS_TOKEN", "");
             next("/login");
         }
     },
     {
-        path: '/login',
-        name: 'login',
+        path: "/login",
+        name: "login",
         component: Login
     }
 ];

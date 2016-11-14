@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-on="http://www.w3.org/1999/xhtml">
     <div class="Login">
         <h1>Bi
             <small>by singuerinc</small>
@@ -26,7 +26,6 @@
 }
 
 .Login {
-
     text-align: center;
 
     & h1 {
@@ -66,10 +65,8 @@
     }
 
     @media (min-width: 992px) {
-
         & h1 {
             font-size: 12rem;
-
             small {
                 font-size: 0.12em;
                 display: block;

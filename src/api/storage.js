@@ -1,4 +1,4 @@
-export const LOCAL_STORAGE_KEY = 'bi';
+export const LOCAL_STORAGE_KEY = "bi";
 
 export default class Storage {
     constructor(storage = window.localStorage) {
@@ -6,20 +6,22 @@ export default class Storage {
     }
 
     _getLocalStorage() {
-        return JSON.parse(this.storage.getItem(LOCAL_STORAGE_KEY) || '{}')
+        return JSON.parse(this.storage.getItem(LOCAL_STORAGE_KEY) || "{}");
     }
 
     json() {
         const defaultStorage = {
-            access_token: '',
-            feed_zoom: 'x3'
+            accessToken: "",
+            feedZoom: "x3"
         };
         const localStorage = this._getLocalStorage();
+
         return Object.assign(defaultStorage, localStorage);
     }
 
     save(data) {
         const newData = Object.assign(this._getLocalStorage(), data);
+
         this.storage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newData));
     }
 
@@ -28,10 +30,10 @@ export default class Storage {
     }
 
     saveAccessToken(token) {
-        this.save({access_token: token})
+        this.save({ accessToken: token });
     }
 
     saveFeedZoom(zoom) {
-        this.save({feed_zoom: zoom})
+        this.save({ feedZoom: zoom });
     }
 }

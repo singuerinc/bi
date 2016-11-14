@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
     <div class="Photos">
         <h1>Bi</h1>
         <h2>Your Instagram™ feed, but bigger!</h2>
@@ -9,7 +9,7 @@
                 <div class="caption">
                     <span v-if="img.location" class="location">{{img.location.name}}</span>
                     <span v-if="img.caption" class="text">{{img.caption.text}}</span>
-                    <img :src="img.user.profile_picture" class="user">
+                    <img :src="img.user.profile_picture" class="user" src="">
                 </div>
                 <img :src="img.images.standard_resolution.url" class="img">
             </li>
@@ -31,6 +31,7 @@
 }
 
 .Photos {
+
     & h1 {
         color: var(--bi-green);
         font-size: 6rem;
@@ -126,32 +127,31 @@
     background-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
 }
 
-
-
 @media (min-width: 992px) {
-    .Photos {
-        & h1 {
-            font-size: 12rem;
+.Photos {
+
+    & h1 {
+        font-size: 12rem;
+    }
+
+    & .images {
+        width: 64rem;
+        margin: 2rem auto;
+
+        &.x2 {
+            width: 108rem;
         }
 
-        & .images {
-            width: 64rem;
-            margin: 2rem auto;
+        &.x3 {
+            width: 128rem;
+        }
 
-            &.x2 {
-                width: 108rem;
-            }
-
-            &.x3 {
-                width: 128rem;
-            }
-
-            & .image {
-                border: 2rem solid white;
-                box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.4);
-            }
+        & .image {
+            border: 2rem solid white;
+            box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.4);
         }
     }
+}
 }
 
 </style>
@@ -167,7 +167,7 @@
             "zoom": Zoom
         },
         computed: {
-            zoom: () => store.state.feed_zoom,
+            zoom: () => store.state.feedZoom,
             feed: () => store.state.feed
         },
         methods: {
@@ -186,7 +186,7 @@
         created() {
             document.body.className = "page-photos";
 
-            let token = this.$store.state.access_token;
+            let token = this.$store.state.accessToken;
 
             this.loadPage(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${token}&scope=basic,public_content&callback=_biParse`);
         }

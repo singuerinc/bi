@@ -1,11 +1,13 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
     <div class="Login">
         <h1>Bi
-            <small>by singuerinc</small>
+            <!--<small>by singuerinc</small>-->
         </h1>
         <h2>Your Instagram™ feed,<br>but bigger!</h2>
 
         <a class="login-btn u-btn" v-on:click.stop.prevent="login">Login</a>
+        <h3>Logging in to your Instagram™ account allows us to deliver your images.</h3>
+
         <a class="policy-btn" href="policy.html" target="_parent">Terms of Service and Privacy Policy</a>
     </div>
 </template>
@@ -27,16 +29,20 @@
 
 .Login {
     text-align: center;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0) 75%);
 
     & h1 {
         color: var(--bi-black);
         font-size: 6rem;
         font-weight: bold;
         text-align: center;
-        margin: 0;
+        display: inline-block;
+        margin: 2rem auto 1rem auto;
+        padding: 0 1.2rem;
+        background-color: var(--bi-green);
 
         & small {
-            font-size: 0.2em;
+            font-size: 0.125em;
             font-weight: lighter;
             display: block;
         }
@@ -45,7 +51,15 @@
     & h2 {
         color: var(--bi-black);
         font-size: 1.5rem;
-        margin: 1rem auto;
+        margin: 2rem auto;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    & h3 {
+        color: var(--bi-black);
+        font-size: 1.4rem;
+        margin: 1rem 2rem;
         font-weight: normal;
         text-align: center;
     }
@@ -67,6 +81,7 @@
     @media (min-width: 992px) {
         & h1 {
             font-size: 12rem;
+            padding: 0 2rem;
             small {
                 font-size: 0.12em;
                 display: block;

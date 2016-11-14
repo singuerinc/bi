@@ -31,13 +31,17 @@
 }
 
 .Photos {
+    text-align: center;
 
     & h1 {
-        color: var(--bi-green);
+        color: var(--bi-black);
         font-size: 6rem;
         font-weight: bold;
         text-align: center;
-        margin: 0;
+        display: inline-block;
+        margin: 2rem auto 1rem auto;
+        padding: 0 1.2rem;
+        background-color: var(--bi-green);
     }
 
     & h2 {
@@ -132,6 +136,7 @@
 
     & h1 {
         font-size: 12rem;
+        padding: 0 2rem;
     }
 
     & .images {

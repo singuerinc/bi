@@ -13,11 +13,9 @@
   "author": "singuerinc <nahuel.scotti@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "vue": "^2.0.3",
-    "vue-router": "^2.0.1",
-    "vuex": "^2.0.0"
   },
   "devDependencies": {
+    "animejs": "^1.1.1",
     "ava": "^0.16.0",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",
@@ -29,15 +27,18 @@
     "extract-text-webpack-plugin": "2.0.0-beta.4",
     "file-loader": "^0.9.0",
     "optimize-css-assets-webpack-plugin": "^1.3.0",
-    "precss": "^1.4.0",
     "postcss": "^5.2.5",
     "postcss-cssnext": "^2.8.0",
+    "precss": "^1.4.0",
     "style-loader": "^0.13.1",
     "stylelint": "^7.5.0",
     "svg-url-loader": "^1.1.0",
     "unminified-webpack-plugin": "^1.1.1",
     "url-loader": "^0.5.7",
+    "vue": "^2.0.3",
     "vue-loader": "^9.5.1",
+    "vue-router": "^2.0.1",
+    "vuex": "^2.0.0",
     "webpack": "2.1.0-beta.25",
     "webpack-dev-server": "2.1.0-beta.9"
   },

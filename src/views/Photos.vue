@@ -162,6 +162,7 @@
 </style>
 <script type="text/ecmascript-6">
 
+    import anime from "animejs";
     import Logout from "./Logout.vue";
     import Zoom from "./Zoom.vue";
     import store from "../store";
@@ -194,6 +195,22 @@
             let token = this.$store.state.accessToken;
 
             this.loadPage(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${token}&scope=basic,public_content&callback=_biParse`);
+        },
+        mounted() {
+            anime({
+                targets: ["h1", "h2"],
+                opacity: [0, 1],
+                translateY: [100, 0],
+                duration: 2000,
+                delay: (el, i) => i * 200
+            });
+
+            anime({
+                targets: [".images"],
+                opacity: [0, 1],
+                duration: 4000,
+                delay: 1000
+            });
         }
     }
 </script>

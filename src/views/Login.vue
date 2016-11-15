@@ -1,8 +1,6 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
     <div class="Login">
-        <h1>Bi
-            <!--<small>by singuerinc</small>-->
-        </h1>
+        <h1>Bi</h1>
         <h2>Your Instagram™ feed,<br>but bigger!</h2>
 
         <a class="login-btn u-btn" v-on:click.stop.prevent="login">Login</a>
@@ -97,6 +95,8 @@
 </style>
 
 <script type="text/ecmascript-6">
+    import anime from "animejs";
+
     export default {
         methods: {
             login(){
@@ -107,10 +107,19 @@
                     eventLabel: redirect_uri
                 });
                 location.href = `https://api.instagram.com/oauth/authorize/?client_id=cee9bf3af8b9426ca0fbe927aaa4b785&redirect_uri=${redirect_uri}&response_type=token`;
-            },
+            }
         },
         created() {
             document.body.className = "page-login";
+        },
+        mounted() {
+            anime({
+                targets: ["h1", "h2", ".login-btn", "h3", ".policy-btn"],
+                opacity: [0, 1],
+                translateY: [100, 0],
+                duration: 2000,
+                delay: (el, i) => i * 100
+            });
         }
     }
 </script>

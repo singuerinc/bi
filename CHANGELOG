@@ -1,5 +1,20 @@
 # bi
 
+## [6.0.0] - 2016-11-15
+- Add cache busting
+
+## [5.0.0] - 2016-11-15
+- Add basic animations to home/photos pages
+
+## [4.0.0] - 2016-11-15
+- Add lint fixes
+- Remove Ads by Google code
+- Better home explanation text about why login
+- Logo is now square
+
+## [3.0.1] - 2016-11-13
+- Fix click on zoom button
+
 ## [3.0.0] - 2016-11-11
 - Add PostCSS support
 

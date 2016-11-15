@@ -4,8 +4,11 @@ const path = require("path");
 const webpack = require("webpack");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const UnminifiedWebpackPlugin = require("unminified-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+
+const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
     entry: {
@@ -13,7 +16,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, "./public"),
-        publicPath: "/",
+        publicPath: "",
         filename: "main.min.js"
     },
     resolve: {
@@ -25,7 +28,7 @@ module.exports = {
             { test: /\.js$/, include: [path.resolve(__dirname, "./src")], loader: "babel-loader" },
             { test: /\.json/, loader: "json-loader" },
             { test: /\.svg/, loader: "svg-url-loader" },
-            { test: /\.(png|jpg|jpeg|gif)$/, loader: "file-loader?name=[name].[ext]" },
+            { test: /\.(png|jpg|jpeg|gif)$/, loader: "file-loader?name=[name]-[hash:6].[ext]" },
             {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract({
@@ -40,26 +43,28 @@ module.exports = {
         new webpack.LoaderOptionsPlugin({
             vue: {
                 postcss: [
-                    require("postcss-cssnext")(),
-                    require("stylelint"),
-                    require("postcss-reporter")
+                    require("postcss-cssnext")()
                 ]
             }
         }),
-        new ExtractTextPlugin("bi.min.css"),
+        new ExtractTextPlugin(isProduction ? "bi-[hash:6].min.css" : "bi.min.css"),
+        new HtmlWebpackPlugin({
+            filename: "index.html",
+            template: "src/index.html"
+        }),
         new CopyWebpackPlugin([
-            { from: __dirname + "/src/index.html" },
-            { from: __dirname + "/src/policy.html" },
-            { from: __dirname + "/src/img/bi.png", to: __dirname + "/public/img/bi.png" },
+            { from: path.join(__dirname, "/src/policy.html") },
+            { from: path.join(__dirname, "/src/img/bi.png"), to: path.join(__dirname, "/public/img/bi.png") },
             {
-                from: __dirname + "/src/pJTm63-FLBNR0ABO9Qdp4KaqbZbsyF_iw42oWTWZLnA",
-                to: __dirname + "/public/.well-known/acme-challenge/pJTm63-FLBNR0ABO9Qdp4KaqbZbsyF_iw42oWTWZLnA/index.html"
+                from: path.join(__dirname, "/src/pJTm63-FLBNR0ABO9Qdp4KaqbZbsyF_iw42oWTWZLnA"),
+                to: path.join(__dirname, "/public/.well-known/acme-challenge/pJTm63-FLBNR0ABO9Qdp4KaqbZbsyF_iw42oWTWZLnA/index.html")
             }
         ])
     ]
 };
 
 if (process.env.NODE_ENV === "production") {
+    module.exports.output.filename = "main-[hash:6].min.js";
     module.exports.devtool = false;
     module.exports.plugins = (module.exports.plugins || []).concat([
         new OptimizeCssAssetsPlugin(),

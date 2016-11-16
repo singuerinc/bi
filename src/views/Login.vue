@@ -3,8 +3,7 @@
         <h1>Bi</h1>
         <h2>Your Instagram™ feed,<br>but bigger!</h2>
 
-        <a class="login-btn u-btn" v-on:click.stop.prevent="login">Login</a>
-        <h3>Logging in to your Instagram™ account allows us to deliver your images.</h3>
+        <a class="login-btn u-btn" v-on:click.stop.prevent="login">Sign in with Instagram</a>
 
         <a class="policy-btn" href="policy.html" target="_parent">Terms of Service and Privacy Policy</a>
     </div>

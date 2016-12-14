@@ -18,6 +18,14 @@ pages:build:
   environment: production
   only:
   - tags
+  
+pages:test:
+  environment: production
+  stage: test
+  script:
+  - npm i -g yarn
+  - yarn
+  - yarn run test
 
 pages:
   environment: production

@@ -6,6 +6,11 @@ module.exports = {
         "browser": true,
         "node": true
     },
+    "globals": {
+        "describe": true,
+        "it": true,
+        "expect": true
+    },
     "rules": {
         "comma-dangle": "error",
         "no-cond-assign": "error",

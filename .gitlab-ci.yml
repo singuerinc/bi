@@ -13,11 +13,6 @@ variables:
 cache:
   paths:
   - node_modules/
-
-pages:build:
-  environment: production
-  only:
-  - tags
   
 pages:test:
   environment: production

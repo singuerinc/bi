@@ -6,14 +6,14 @@
     "type": "git"
   },
   "scripts": {
-    "dev": "yarn && webpack-dev-server --content-base ./src --inline --hot --host 0.0.0.0 --port 8080",
+    "serve": "webpack-dev-server --content-base ./src --inline --hot --host 0.0.0.0 --port 8080",
+    "dev": "yarn && yarn run serve",
     "build": "rm -rf public && NODE_ENV=production webpack --display-error-details --progress --hide-modules",
     "test": "jest"
   },
   "author": "singuerinc <nahuel.scotti@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
-  "devDependencie": {
+  "dependencies": {
     "animejs": "^1.1.1",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",

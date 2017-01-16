@@ -16,6 +16,8 @@ cache:
 
 pages:build:
   environment: production
+  script:
+  - echo "build"
   only:
   - tags
 

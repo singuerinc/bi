@@ -32,7 +32,7 @@ class LocalStorageMock {
 const localStorage = new LocalStorageMock();
 const storage = new Storage(localStorage);
 
-describe("my beverage", () => {
+describe("storage", () => {
     it("storage/get default storage", () => {
         expect(storage.json()).toEqual({ accessToken: "", feedZoom: "x3" });
     });

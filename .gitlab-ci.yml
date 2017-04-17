@@ -14,17 +14,17 @@ pages:test:
   environment: production
   stage: test
   script:
-  - npm i yarn
-  - node_modules/.bin/yarn
-  - node_modules/.bin/yarn run test
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - yarn
+  - yarn run test
 
 pages:
   environment: production
   stage: deploy
   script:
-  - npm i yarn
-  - node_modules/.bin/yarn
-  - node_modules/.bin/yarn run build
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - yarn
+  - yarn run build
   artifacts:
     paths:
     - $CI_PROJECT_DIR/public

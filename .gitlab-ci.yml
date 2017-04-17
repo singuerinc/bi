@@ -14,17 +14,17 @@ pages:test:
   environment: production
   stage: test
   script:
-  - npm i -g yarn
-  - yarn
-  - yarn run test
+  - npm i yarn
+  - node_modules/.bin/yarn
+  - node_modules/.bin/yarn run test
 
 pages:
   environment: production
   stage: deploy
   script:
-  - npm i -g yarn
-  - yarn
-  - yarn run build
+  - npm i yarn
+  - node_modules/.bin/yarn
+  - node_modules/.bin/yarn run build
   artifacts:
     paths:
     - $CI_PROJECT_DIR/public

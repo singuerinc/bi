@@ -56,8 +56,8 @@ module.exports = {
             { from: path.join(__dirname, "/src/policy.html") },
             { from: path.join(__dirname, "/src/img/bi.png"), to: path.join(__dirname, "/public/img/bi.png") },
             {
-                from: path.join(__dirname, "/src/yFU3QsqzuU4A0c0re17jj7jHuaQDLi95zG7Ib_hsHTo"),
-                to: path.join(__dirname, "/public/.well-known/acme-challenge/yFU3QsqzuU4A0c0re17jj7jHuaQDLi95zG7Ib_hsHTo/index.html")
+                from: path.join(__dirname, "/src/yP7FHYJI6nXM861_2m6vVpGA4djuOBE9Tvkw-lbtj1w"),
+                to: path.join(__dirname, "/public/.well-known/acme-challenge/yP7FHYJI6nXM861_2m6vVpGA4djuOBE9Tvkw-lbtj1w/index.html")
             }
         ])
     ]

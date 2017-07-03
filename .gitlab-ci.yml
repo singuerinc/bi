@@ -25,6 +25,10 @@ pages:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - yarn
   - yarn run build
+  - sed -i -e "s/\$ACME_FILE_NAME/$ACME_FILE_NAME/" ./acme_file_template
+  - sed -i -e "s/\$ACME_FILE_CONTENT/$ACME_FILE_CONTENT/" ./acme_file_template
+  - mkdir -p ./public/.well-known/acme-challenge/
+  - mv ./acme_file_template ./public/.well-known/acme-challenge/$ACME_FILE_NAME
   artifacts:
     paths:
     - $CI_PROJECT_DIR/public

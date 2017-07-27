@@ -25,7 +25,7 @@
 
 </style>
 
-<script type="text/javascript">
+<script type="ts">
     export default {
         methods: {
             logout(){

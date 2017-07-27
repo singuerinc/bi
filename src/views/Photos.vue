@@ -160,7 +160,7 @@
 }
 
 </style>
-<script type="text/javascript">
+<script type="ts">
 
     import anime from "animejs";
     import Logout from "./Logout.vue";

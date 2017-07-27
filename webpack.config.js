@@ -22,7 +22,7 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.js', '.vue', '.json'],
             alias: {
-                'vue$': 'vue/dist/vue.esm.js'
+                'vue$': 'vue/dist/vue.esm'
             }
     },
     module: {
@@ -30,11 +30,8 @@ module.exports = {
             { test: /\.vue$/, loader: "vue-loader" },
             {
                 test: /\.tsx?$/,
-                loader: 'ts-loader',
-                exclude: /node_modules/,
-                options: {
-                    appendTsSuffixTo: [/\.vue$/],
-                }
+                loader: ['babel-loader', 'ts-loader'],
+                exclude: /node_modules/
             },
             { test: /\.json/, loader: "json-loader" },
             { test: /\.svg/, loader: "svg-url-loader" },

@@ -60,7 +60,7 @@
 }
 
 </style>
-<script type="text/javascript">
+<script type="ts">
 
     import store from "../store";
 

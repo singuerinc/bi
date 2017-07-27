@@ -93,7 +93,7 @@
 
 </style>
 
-<script type="text/javascript">
+<script type="ts">
     import anime from "animejs";
 
     export default {

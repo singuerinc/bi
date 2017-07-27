@@ -12,7 +12,7 @@ const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
     entry: {
-        app: "./src/main.js"
+        app: "./src/main.ts"
     },
     output: {
         path: path.resolve(__dirname, "./public"),
@@ -20,12 +20,22 @@ module.exports = {
         filename: "main.min.js"
     },
     resolve: {
-        extensions: [".json", ".js"]
+        extensions: ['.ts', '.js', '.vue', '.json'],
+            alias: {
+                'vue$': 'vue/dist/vue.esm.js'
+            }
     },
     module: {
         rules: [
             { test: /\.vue$/, loader: "vue-loader" },
-            { test: /\.js$/, include: [path.resolve(__dirname, "./src")], loader: "babel-loader" },
+            {
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+                options: {
+                    appendTsSuffixTo: [/\.vue$/],
+                }
+            },
             { test: /\.json/, loader: "json-loader" },
             { test: /\.svg/, loader: "svg-url-loader" },
             { test: /\.(png|jpg|jpeg|gif)$/, loader: "file-loader?name=[name]-[hash:6].[ext]" },
@@ -64,12 +74,6 @@ if (process.env.NODE_ENV === "production") {
     module.exports.devtool = false;
     module.exports.plugins = (module.exports.plugins || []).concat([
         new OptimizeCssAssetsPlugin(),
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        }),
-        new UnminifiedWebpackPlugin()
+        new webpack.optimize.DedupePlugin()
     ]);
 }

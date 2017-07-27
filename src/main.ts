@@ -3,8 +3,7 @@ import Bi from "./Bi.vue";
 import store from "./store";
 import router from "./router";
 
-/* eslint-disable no-new */
-const v = new Vue({
+new Vue({
     el: "#bi",
     store,
     router,

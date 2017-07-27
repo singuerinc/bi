@@ -70,7 +70,6 @@ if (process.env.NODE_ENV === "production") {
     module.exports.output.filename = "main-[hash:6].min.js";
     module.exports.devtool = false;
     module.exports.plugins = (module.exports.plugins || []).concat([
-        new OptimizeCssAssetsPlugin(),
-        new webpack.optimize.DedupePlugin()
+        new OptimizeCssAssetsPlugin()
     ]);
 }

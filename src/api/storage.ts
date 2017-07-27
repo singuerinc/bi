@@ -1,6 +1,8 @@
 export const LOCAL_STORAGE_KEY = "bi";
 
 export default class Storage {
+    public storage: any;
+
     constructor(storage = window.localStorage) {
         this.storage = storage;
     }

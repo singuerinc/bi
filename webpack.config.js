@@ -21,18 +21,18 @@ module.exports = {
     },
     resolve: {
         extensions: ['.ts', '.js', '.vue', '.json'],
-            alias: {
-                'vue$': 'vue/dist/vue.esm'
-            }
     },
     module: {
         rules: [
-            { test: /\.vue$/, loader: "vue-loader" },
-            {
-                test: /\.tsx?$/,
-                loader: ['babel-loader', 'ts-loader'],
-                exclude: /node_modules/
+            { test: /\.vue$/, loader: 'vue-loader',
+              options: {
+                loaders: {
+                  ts: 'awesome-typescript-loader',
+                  tsx: 'babel-loader!awesome-typescript-loader',
+                }
+              }
             },
+            { test: /\.tsx?$/, loader: 'awesome-typescript-loader', options: { appendTsSuffixTo: [/TS\.vue$/] } },
             { test: /\.json/, loader: "json-loader" },
             { test: /\.svg/, loader: "svg-url-loader" },
             { test: /\.(png|jpg|jpeg|gif)$/, loader: "file-loader?name=[name]-[hash:6].[ext]" },

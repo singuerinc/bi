@@ -1,26 +1,34 @@
 export const LOCAL_STORAGE_KEY = "bi";
 
+interface IStorage {
+    getItem(key: string): string | null;
+    setItem(key:string, value: any): any;
+    clear(): void;
+}
+
 export default class Storage {
+    public storage: IStorage;
+
     constructor(storage = window.localStorage) {
         this.storage = storage;
     }
 
-    _getLocalStorage() {
+    _getLocalStorage(): any {
         return JSON.parse(this.storage.getItem(LOCAL_STORAGE_KEY) || "{}");
     }
 
-    json() {
+    json(): any {
         const defaultStorage = {
             accessToken: "",
             feedZoom: "x3"
         };
-        const localStorage = this._getLocalStorage();
+        const localStorage: any = this._getLocalStorage();
 
         return Object.assign(defaultStorage, localStorage);
     }
 
-    save(data) {
-        const newData = Object.assign(this._getLocalStorage(), data);
+    save(data: any) {
+        const newData: any = Object.assign(this._getLocalStorage(), data);
 
         this.storage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newData));
     }
@@ -29,11 +37,11 @@ export default class Storage {
         this.storage.clear();
     }
 
-    saveAccessToken(token) {
+    saveAccessToken(token: string) {
         this.save({ accessToken: token });
     }
 
-    saveFeedZoom(zoom) {
+    saveFeedZoom(zoom: string) {
         this.save({ feedZoom: zoom });
     }
 }

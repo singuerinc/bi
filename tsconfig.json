@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "amd",
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "typeRoots": ["./node_modules/vuex/types/"],
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["./src/**/*"],
+  "awesomeTypescriptLoaderOptions": {
+    "useBabel": true,
+    "useCache": true
+  }
+}

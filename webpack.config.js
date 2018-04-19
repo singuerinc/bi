@@ -12,7 +12,7 @@ const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
     entry: {
-        app: "./src/main.js"
+        app: "./src/main.ts"
     },
     output: {
         path: path.resolve(__dirname, "./public"),
@@ -20,12 +20,19 @@ module.exports = {
         filename: "main.min.js"
     },
     resolve: {
-        extensions: [".json", ".js"]
+        extensions: ['.ts', '.js', '.vue', '.json'],
     },
     module: {
         rules: [
-            { test: /\.vue$/, loader: "vue-loader" },
-            { test: /\.js$/, include: [path.resolve(__dirname, "./src")], loader: "babel-loader" },
+            { test: /\.vue$/, loader: 'vue-loader',
+              options: {
+                loaders: {
+                  ts: 'awesome-typescript-loader',
+                  tsx: 'babel-loader!awesome-typescript-loader',
+                }
+              }
+            },
+            { test: /\.tsx?$/, loader: 'awesome-typescript-loader', options: { appendTsSuffixTo: [/TS\.vue$/] } },
             { test: /\.json/, loader: "json-loader" },
             { test: /\.svg/, loader: "svg-url-loader" },
             { test: /\.(png|jpg|jpeg|gif)$/, loader: "file-loader?name=[name]-[hash:6].[ext]" },
@@ -63,13 +70,6 @@ if (process.env.NODE_ENV === "production") {
     module.exports.output.filename = "main-[hash:6].min.js";
     module.exports.devtool = false;
     module.exports.plugins = (module.exports.plugins || []).concat([
-        new OptimizeCssAssetsPlugin(),
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        }),
-        new UnminifiedWebpackPlugin()
+        new OptimizeCssAssetsPlugin()
     ]);
 }

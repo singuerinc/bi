@@ -1,5 +1,29 @@
 # bi
 
+## [7.0.0] - 2018-04-19
+- refactor: Typescript support
+- feat: add netlify.toml config file
+- fix: images not loading
+- fix: styles not working
+- chore: remove Acme file
+- chore: remove Docker related files
+- chore: remove .gitlab-ci file
+
+## [6.5.0] - 2017-07-03
+- Update Acme file
+
+## [6.4.0] - 2017-04-21
+- Update Acme file
+
+## [6.3.0] - 2017-04-17
+- Update Acme file
+
+## [6.2.0] - 2017-01-16
+- Update Acme file
+
+## [6.1.0] - 2016-11-16
+- Change login button text
+
 ## [6.0.0] - 2016-11-15
 - Add cache busting
 

@@ -1,7 +1,0 @@
-FROM node:7-slim
-RUN mkdir -p /src/app
-WORKDIR /src
-RUN npm install -g yarn
-WORKDIR /src/app
-EXPOSE 8080
-CMD ["yarn", "run", "dev"]

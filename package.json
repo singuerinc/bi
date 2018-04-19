@@ -6,9 +6,11 @@
     "type": "git"
   },
   "scripts": {
-    "serve": "webpack-dev-server --content-base ./src --inline --hot --host 0.0.0.0 --port 8080",
-    "dev": "yarn && yarn run serve",
-    "build": "rm -rf public && NODE_ENV=production webpack --display-error-details --progress --hide-modules"
+    "serve":
+      "webpack-dev-server --content-base ./src --inline --hot --host 0.0.0.0 --port 8080",
+    "dev": "yarn run serve",
+    "build":
+      "NODE_ENV=production webpack --display-error-details --progress --hide-modules"
   },
   "author": "singuerinc <nahuel.scotti@gmail.com>",
   "license": "MIT",

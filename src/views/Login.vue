@@ -105,7 +105,8 @@
                     eventAction: 'click',
                     eventLabel: redirect_uri
                 });
-                location.href = `https://api.instagram.com/oauth/authorize/?client_id=cee9bf3af8b9426ca0fbe927aaa4b785&redirect_uri=${redirect_uri}&response_type=token`;
+                //location.href = `https://api.instagram.com/oauth/authorize/?client_id=cee9bf3af8b9426ca0fbe927aaa4b785&redirect_uri=${redirect_uri}&response_type=token`;
+                location.href = `https://api.instagram.com/oauth/authorize/?client_id=4c5d6651ea4a495f866cc256dcc5f87b&redirect_uri=${redirect_uri}&response_type=token`;
             }
         },
         created() {

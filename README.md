@@ -13,13 +13,13 @@ The idea behind it is to test technologies like Vue.js, webpack, Docker, PostCSS
 ## Run
 
 ```bash
-docker-compose up -d
+yarn run dev
 open http://localhost:8080/
 ```
 
 ## Build
 
 ```bash
-docker-compose exec app yarn run build
+yarn run build
 open ./public
 ```

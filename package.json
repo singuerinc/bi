@@ -8,7 +8,9 @@
   "scripts": {
     "serve": "webpack-dev-server --content-base ./src --inline --hot --host 0.0.0.0 --port 8080",
     "dev": "yarn run serve",
-    "build": "NODE_ENV=production webpack --display-error-details --progress --hide-modules"
+    "build": "NODE_ENV=production webpack --display-error-details --progress --hide-modules",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "singuerinc <nahuel.scotti@gmail.com>",
   "license": "MIT",
@@ -41,11 +43,13 @@
     "vue-template-compiler": "^2.4.2",
     "vuex": "^2.0.0",
     "webpack": "^3.4.1",
-    "webpack-dev-server": "^2.6.1"
+    "webpack-dev-server": "^2.6.1",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@types/vue": "^2.0.0",
     "@types/vue-router": "^2.0.0",
     "tslint": "^5.5.0"
-  }
+  },
+  "snyk": true
 }

@@ -30,7 +30,7 @@
     "postcss-cssnext": "^2.8.0",
     "precss": "^1.4.0",
     "style-loader": "^0.13.1",
-    "stylelint": "^7.5.0",
+    "stylelint": "^11.0.0",
     "svg-url-loader": "^1.1.0",
     "typescript": "^2.4.2",
     "unminified-webpack-plugin": "^1.1.1",

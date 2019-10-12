@@ -1,14 +1,14 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import Storage from './api/storage';
+import Vue from "vue";
+import Vuex from "vuex";
+import Storage from "./api/storage";
 
 Vue.use(Vuex);
 
 const storage = new Storage();
 
 const state = {
-  accessToken: '',
-  feedZoom: 'x3',
+  accessToken: "",
+  feedZoom: "x3",
   feed: {
     data: [],
     pagination: {
@@ -38,7 +38,7 @@ const actions = {
     { commit }: { commit: (key: string, value: any) => void },
     data: any
   ): any {
-    commit('ADD_FEED', data);
+    commit("ADD_FEED", data);
   }
 };
 
